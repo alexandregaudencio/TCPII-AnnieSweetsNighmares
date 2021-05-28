@@ -145,16 +145,14 @@ public class playerMenina : MonoBehaviour
         rig.velocity = new Vector3(movement, rig.velocity.y, movement2).normalized * Speed;
 
 
-        Vector3 normalizedInputVector = new Vector3(movement, 0, movement2)*10;
-        Vector3 velocity = Vector3.zero;
+        Vector3 normalizedInputVector = new Vector3(movement, 0, movement2);
         if (normalizedInputVector != Vector3.zero)
         {
-            targetVision.transform.position = Vector3.SmoothDamp(transform.position, transform.position + normalizedInputVector, ref velocity,  Time.fixedDeltaTime);
+            targetVision.transform.position = transform.position + normalizedInputVector*5;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetVision.position - transform.position), 10 * Time.fixedDeltaTime);
+
         }
-        //Vector3 targetDirection = transform.position - targetVision.position ;
-        //targetDirection.y = 00f;
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.LookAt(targetVision), Time.deltaTime*5);
-        transform.LookAt(targetVision);
+        //transform.LookAt(targetVision);
 
 
         if (segurando == true) anim.SetBool("segurando", true);
