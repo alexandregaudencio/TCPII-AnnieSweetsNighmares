@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4740804078956593062}
   - component: {fileID: -6456174471283356339}
   - component: {fileID: 4830351711745203897}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BarreiraLego
   m_TagString: arm
   m_Icon: {fileID: 0}
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   la: 0
+  la2: 0

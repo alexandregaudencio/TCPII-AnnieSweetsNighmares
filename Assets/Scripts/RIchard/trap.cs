@@ -5,13 +5,18 @@ using UnityEngine;
 public class trap : MonoBehaviour
 {
 
-    public GameObject Jogador;
+    private GameObject Jogador;
+    public KeyCode teclaPlayer;
     public GameObject botao;
     public KeyCode TeclaAbrir = KeyCode.E;
+
+    public KeyCode usar;
     public float giroAtual, giroAlvo;
     public int tempoDeVolta;
     Vector3 rotacaoInicial;
     float velocidade;
+    private GameObject mao;
+    private GameObject chave;
 
 
     [Range(0.0f, 150.0f)] public float grausDeGiro = 90.0f;
@@ -28,6 +33,7 @@ public class trap : MonoBehaviour
     float seg = 10;
     float segAtual = 0;
 
+    private bool ativo, temBotao;
 
 
     // Start is called before the first frame update
@@ -37,8 +43,8 @@ public class trap : MonoBehaviour
 
         rotacaoInicial = transform.eulerAngles;
 
-
-
+        ativo = false;
+        temBotao = false;
 
 
     }
@@ -46,10 +52,14 @@ public class trap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        temBotao = botao.GetComponent<Botao>().gastarChave;
+        ativo = botao.GetComponent<Botao>().ativou;
+        teclaPlayer = botao.GetComponent<Botao>().TeclaPlayer;
         ControlarPorta();
         Ativar();
 
         seg += Time.deltaTime;
+
 
         if (segAtual + tempoDeVolta < seg)
         {
@@ -60,31 +70,20 @@ public class trap : MonoBehaviour
 
     void ControlarPorta()
     {
-        Vector3 localDeChecagem;
-        if (Jogador != null)
-        {
-            localDeChecagem = Jogador.transform.position;
-        }
-        else
-        {
-            localDeChecagem = transform.position;
-        }
-        if (Vector3.Distance(botao.transform.position, localDeChecagem) < distanciaAtivacao)
-        {
-            if (giroAtual < 1.0f && Input.GetKeyDown(TeclaAbrir))
-            {
-                giroAlvo = grausDeGiro;
-                segAtual = seg;
 
-            }
-
+        if (giroAtual < 1.0f && ativo == true && temBotao == true && Input.GetKey(teclaPlayer))
+        {
+            giroAlvo = grausDeGiro;
+            segAtual = seg;
 
         }
+
+
+
         giroAtual = Mathf.MoveTowards(giroAtual, giroAlvo, velocidadeDeGiro * Time.deltaTime);
 
 
     }
-
 
 
     void Ativar()

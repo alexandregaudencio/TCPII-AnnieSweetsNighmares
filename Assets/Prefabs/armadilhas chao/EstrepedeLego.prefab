@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3874581212415916696}
   - component: {fileID: 3874581212415916703}
   - component: {fileID: 3874581212415916699}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: EstrepedeLego
   m_TagString: arm
   m_Icon: {fileID: 0}
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   la: 0
+  la2: 0

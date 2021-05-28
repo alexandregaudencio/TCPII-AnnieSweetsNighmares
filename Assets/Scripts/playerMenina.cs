@@ -2,15 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class playerMenina : MonoBehaviour
 {
-   public static playerMenina instance;
+    public static playerMenina instance;
 
     [SerializeField] private float Speed;
     [SerializeField] private Transform targetVision;
     private Rigidbody rig;
     //Vector3 movement;
     // float contador = 5;
+
+    //Player Move
+    public string horizontal, vertical;
+
+    //Martelo
+    public GameObject botao;
+    public GameObject chave;
+    public bool comKey = false;
+    private GameObject newchave;
+    public KeyCode TeclaMartelo = KeyCode.J;
+
+
 
     public GameObject[] LA;
     // public GameObject LA2;
@@ -60,9 +73,9 @@ public class playerMenina : MonoBehaviour
     public bool jaTem4;
     public int aonde;
 
-    public KeyCode TeclaPegar = KeyCode.E;
-    public KeyCode TeclaJuntar = KeyCode.R;
-    public KeyCode TeclaJogar = KeyCode.T;
+    // public KeyCode TeclaPegar = KeyCode.E;
+    // public KeyCode TeclaJuntar = KeyCode.R;
+    // public KeyCode TeclaJogar = KeyCode.T;
 
     private float movement;
     private float movement2;
@@ -110,37 +123,48 @@ public class playerMenina : MonoBehaviour
     void Update()
     {
 
+
         //Move();
 
     }
 
     private void FixedUpdate()
     {
-        Move();
+
+            Move();
+        
     }
 
 
 
     void Move()
     {
-        Vector3 normalizedInputVector = new Vector3(movement, 0, movement2);
+
+        movement = Input.GetAxisRaw(horizontal); //Horizontal
+        movement2 = Input.GetAxisRaw(vertical); //Vertical
+        rig.velocity = new Vector3(movement, rig.velocity.y, movement2).normalized * Speed;
+
+
+        Vector3 normalizedInputVector = new Vector3(movement, 0, movement2)*10;
+        Vector3 velocity = Vector3.zero;
         if (normalizedInputVector != Vector3.zero)
         {
-            targetVision.transform.position = transform.position + normalizedInputVector;
+            targetVision.transform.position = Vector3.SmoothDamp(transform.position, transform.position + normalizedInputVector, ref velocity,  Time.fixedDeltaTime);
         }
+        //Vector3 targetDirection = transform.position - targetVision.position ;
+        //targetDirection.y = 00f;
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, transform.LookAt(targetVision), Time.deltaTime*5);
         transform.LookAt(targetVision);
 
 
-        movement = Input.GetAxisRaw("Horizontal");
-        movement2 = Input.GetAxisRaw("Vertical");
-        rig.velocity = new Vector3(movement, rig.velocity.y, movement2).normalized*Speed;
         if (segurando == true) anim.SetBool("segurando", true);
         else anim.SetBool("segurando", false);
 
-        if(movement != 0.00f || movement2 != 0.00f)
+        if (movement != 0.00f || movement2 != 0.00f)
         {
             anim.SetBool("andando", true);
-        } else
+        }
+        else
         {
             anim.SetBool("andando", false);
 
@@ -153,7 +177,7 @@ public class playerMenina : MonoBehaviour
         //    //movement = Input.GetAxisRaw("Horizontal");
         //    //movement2 = Input.GetAxisRaw("Vertical");
 
-           
+
         //    //rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
 
         //}
@@ -244,10 +268,19 @@ public class playerMenina : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
 
-        if (Input.GetKey(TeclaPegar))
+        if (Input.GetKey(TeclaMartelo))
         {
             if (segurando == false)
             {
+                if (collision.gameObject.CompareTag("chave"))
+                {
+                    newchave = Instantiate(chave, mao.transform.position, Quaternion.identity);
+                    newchave.transform.parent = mao.transform;
+                    segurando = true;
+                    comKey = true;
+                    Destroy(collision.gameObject);
+
+                }
                 if (collision.gameObject.CompareTag("mesa"))
                 {
                     if (criando == true)
@@ -305,7 +338,7 @@ public class playerMenina : MonoBehaviour
                     {
                         obj3.GetComponent<Rigidbody>().isKinematic = true;
                         obj3.transform.position = mao.transform.position;
-                       // obj3.transform.rotation = mao.transform.rotation;
+                        // obj3.transform.rotation = mao.transform.rotation;
                         obj3.transform.parent = mao.transform;
                     }
                 }
@@ -331,7 +364,7 @@ public class playerMenina : MonoBehaviour
                         {
                             if (colocadoE == false)
                             {
-                                
+
                                 obj4Id = obj3Id;
                                 Destroy(obj3);
                                 segurando = false;
@@ -351,11 +384,11 @@ public class playerMenina : MonoBehaviour
                                 if (obj4Id == 2)//ouro
                                 {
                                     RotX1 = 0;
-                                    RotY1 =90;
+                                    RotY1 = 90;
                                     RotZ1 = 0;
                                 }
                                 obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
-                               
+
                             }
                         }
                         if (collision.gameObject.layer == 12)
@@ -374,7 +407,7 @@ public class playerMenina : MonoBehaviour
                                 }
                                 if (obj5Id == 1)//lego
                                 {
-                                    RotX1 =-90;
+                                    RotX1 = -90;
                                     RotY1 = 0;
                                     RotZ1 = 0;
                                 }
@@ -385,7 +418,7 @@ public class playerMenina : MonoBehaviour
                                     RotZ1 = 0;
                                 }
                                 obj5 = Instantiate(materiaisArray[obj5Id], mesaArray[1].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
-                                
+
                             }
                         }
                     }
@@ -394,7 +427,7 @@ public class playerMenina : MonoBehaviour
         }
 
 
-        if (Input.GetKey(TeclaJuntar))
+        if (Input.GetKey(TeclaMartelo))
         {
             if (collision.gameObject.CompareTag("mesa"))
             {
@@ -486,7 +519,7 @@ public class playerMenina : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        if (Input.GetKey(TeclaJogar))
+        if (Input.GetKey(TeclaMartelo))
         {
             //armadilha1 armScript = GameObject.Find("armadilha1").GetComponent<armadilha1>();
             if (armMao == true)
@@ -582,6 +615,24 @@ public class playerMenina : MonoBehaviour
 
                 }
             }
+        }
+
+
+        if (Input.GetKey(TeclaMartelo))
+        {
+
+            if (collision.gameObject.CompareTag("botao") && comKey == true)
+            {
+
+                newchave.SetActive(false);
+                comKey = false;
+                segurando = false;
+                Destroy(newchave, 2);
+
+            }
+
+
+
         }
     }
 }

@@ -9,7 +9,7 @@ public class armadilha2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
+        //playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
         la = playerMenina.instance.aonde;
         la2 = playerMenina2.instance.aonde;
     }
@@ -19,16 +19,7 @@ public class armadilha2 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("urso"))
-        {
-            if (collision.gameObject.layer == 9)
-            {
 
-                Destroy(gameObject);
-                Destroy(collision.gameObject);
-
-            }
-        }
     }
     void OnDestroy()
     {

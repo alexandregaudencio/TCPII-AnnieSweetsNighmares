@@ -14,6 +14,15 @@ public class playerMenina2 : MonoBehaviour
     public AudioSource myFx;
     public AudioClip JogarNoLixo, PegarCola, PegarLego, PegarOuro, JogarCola, JogarLego, JogarOuro, CraftCola, CraftLego, CraftOuro;
 
+    //Movimentação Player
+    public string horizontal, vertical;
+
+    // Martelo
+    public GameObject botao;
+    public GameObject chave;
+    private bool comKey = false;
+    private GameObject newchave;
+    public KeyCode TeclaMartelo = KeyCode.V;
 
     public GameObject[] LA;
     // public GameObject LA2;
@@ -44,7 +53,7 @@ public class playerMenina2 : MonoBehaviour
     int obj6Id;//id das armadilhas prontas ()
     int obj7Id;//id das armadilhas na mao (armId)
 
-    
+
 
     float tempoPoçaCola = 1;//tempo PoçaCola
     float tempoBarreiraLego = 2;//BarreiraLego
@@ -98,7 +107,7 @@ public class playerMenina2 : MonoBehaviour
         obj5Id = 5;
         obj4Id = 5;
         instance = this;
-       
+
 
     }
 
@@ -164,8 +173,8 @@ public class playerMenina2 : MonoBehaviour
         transform.LookAt(targetVision);
 
 
-        movement = Input.GetAxisRaw("Horizontal2");
-        movement2 = Input.GetAxisRaw("Vertical2");
+        movement = Input.GetAxisRaw(horizontal);
+        movement2 = Input.GetAxisRaw(vertical);
         rig.velocity = new Vector3(movement, rig.velocity.y, movement2).normalized * Speed;
 
         if (segurando == true) anim.SetBool("segurando", true);
@@ -266,13 +275,13 @@ public class playerMenina2 : MonoBehaviour
         //}
         if (Input.GetKey(KeyCode.LeftShift))
         {
-           
+
             anim.SetBool("correndo", true);
 
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-           
+
             anim.SetBool("correndo", false);
         }
 
@@ -288,6 +297,15 @@ public class playerMenina2 : MonoBehaviour
         {
             if (segurando == false)
             {
+                if (collision.gameObject.CompareTag("chave"))
+                {
+                    newchave = Instantiate(chave, mao.transform.position, Quaternion.identity);
+                    newchave.transform.parent = mao.transform;
+                    segurando = true;
+                    comKey = true;
+                    Destroy(collision.gameObject);
+
+                }
                 if (collision.gameObject.CompareTag("mesa"))
                 {
                     if (criando == true)
@@ -354,6 +372,7 @@ public class playerMenina2 : MonoBehaviour
 
             }
 
+
             if (segurando == true)
             {
                 anim.SetBool("segurando", true);
@@ -373,68 +392,69 @@ public class playerMenina2 : MonoBehaviour
                         if (collision.gameObject.layer == 11)
                         {
                             if (colocadoE == false)
-                             {
+                            {
 
-                            obj4Id = obj3Id;
-                            Destroy(obj3);
-                            segurando = false;
-                            colocadoE = true;
-                            if (obj4Id == 0)//cola
-                            {
-                                RotX1 = -90;
-                                RotY1 = 0;
-                                RotZ1 = 0;
-                            }
-                            if (obj4Id == 1)//lego
-                            {
-                                RotX1 = -90;
-                                RotY1 = 0;
-                                RotZ1 = 0;
-                            }
-                            if (obj4Id == 2)//ouro
-                            {
-                                RotX1 = 0;
-                                RotY1 = 90;
-                                RotZ1 = 0;
-                            }
-                            obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
+                                obj4Id = obj3Id;
+                                Destroy(obj3);
+                                segurando = false;
+                                colocadoE = true;
+                                if (obj4Id == 0)//cola
+                                {
+                                    RotX1 = -90;
+                                    RotY1 = 0;
+                                    RotZ1 = 0;
+                                }
+                                if (obj4Id == 1)//lego
+                                {
+                                    RotX1 = -90;
+                                    RotY1 = 0;
+                                    RotZ1 = 0;
+                                }
+                                if (obj4Id == 2)//ouro
+                                {
+                                    RotX1 = 0;
+                                    RotY1 = 90;
+                                    RotZ1 = 0;
+                                }
+                                obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
 
+                            }
                         }
-                    }
                         if (collision.gameObject.layer == 12)
                         {
-                        if (colocadoD == false)
-                        {
-                            obj5Id = obj3Id;
-                            Destroy(obj3);
-                            segurando = false;
-                            colocadoD = true;
-                            if (obj5Id == 0)//cola
+                            if (colocadoD == false)
                             {
-                                RotX1 = -90;
-                                RotY1 = 0;
-                                RotZ1 = 0;
+                                obj5Id = obj3Id;
+                                Destroy(obj3);
+                                segurando = false;
+                                colocadoD = true;
+                                if (obj5Id == 0)//cola
+                                {
+                                    RotX1 = -90;
+                                    RotY1 = 0;
+                                    RotZ1 = 0;
+                                }
+                                if (obj5Id == 1)//lego
+                                {
+                                    RotX1 = -90;
+                                    RotY1 = 0;
+                                    RotZ1 = 0;
+                                }
+                                if (obj5Id == 2)//ouro
+                                {
+                                    RotX1 = 0;
+                                    RotY1 = 90;
+                                    RotZ1 = 0;
+                                }
+                                obj5 = Instantiate(materiaisArray[obj5Id], mesaArray[1].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
+
                             }
-                            if (obj5Id == 1)//lego
-                            {
-                                RotX1 = -90;
-                                RotY1 = 0;
-                                RotZ1 = 0;
-                            }
-                            if (obj5Id == 2)//ouro
-                            {
-                                RotX1 = 0;
-                                RotY1 = 90;
-                                RotZ1 = 0;
-                            }
-                            obj5 = Instantiate(materiaisArray[obj5Id], mesaArray[1].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
-                            
                         }
-                    }
                     }
                 }
             }
         }
+
 
 
         if (Input.GetKey(TeclaJuntar))
@@ -628,6 +648,22 @@ public class playerMenina2 : MonoBehaviour
 
                 }
             }
+        }
+        if (Input.GetKey(TeclaMartelo))
+        {
+
+            if (collision.gameObject.CompareTag("botao") && comKey == true)
+            {
+
+                newchave.SetActive(false);
+                comKey = false;
+                segurando = false;
+                Destroy(newchave, 2);
+
+            }
+
+
+
         }
     }
 }

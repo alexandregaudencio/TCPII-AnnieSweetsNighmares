@@ -20,6 +20,8 @@ TagManager:
   - LA3
   - LA4
   - martelo
+  - chave
+  - mao
   layers:
   - Default
   - TransparentFX

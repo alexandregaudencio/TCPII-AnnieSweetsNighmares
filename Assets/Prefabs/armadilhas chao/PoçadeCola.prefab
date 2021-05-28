@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5377090694309326190}
   - component: {fileID: 5377090694309326185}
   - component: {fileID: 5618961895477647373}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "Po\xE7adeCola"
   m_TagString: arm
   m_Icon: {fileID: 0}
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   la: 0
+  la2: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1403272169677734399}
   - component: {fileID: 1403272169677734384}
   - component: {fileID: 1403272169677734385}
-  - component: {fileID: -9047766350938270853}
   - component: {fileID: 3239028200543268535}
   m_Layer: 9
   m_Name: UrsoVermelho
@@ -94,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403272169677734386}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -128,21 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
-  chave: {fileID: 7224878943131129568, guid: 8c7f317ec782a6f4d95cc95408093833, type: 3}
+  chave: {fileID: 8376594530254579415, guid: 82a3fb62dfb926b40aefba787cafa095, type: 3}
   SpawnChance: 15
---- !u!65 &-9047766350938270853
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403272169677734386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &3239028200543268535
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -153,7 +139,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 2.7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

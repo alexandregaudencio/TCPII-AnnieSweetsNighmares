@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3455206043887478243}
   - component: {fileID: 3600924275371045988}
   - component: {fileID: 9009628087924756093}
-  - component: {fileID: 8808512677885416665}
   - component: {fileID: -4106615008263255646}
   m_Layer: 10
   m_Name: UrsoLaranja
@@ -94,7 +93,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673172321554250199}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -128,21 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
-  chave: {fileID: 7224878943131129568, guid: 8c7f317ec782a6f4d95cc95408093833, type: 3}
+  chave: {fileID: 8376594530254579415, guid: 82a3fb62dfb926b40aefba787cafa095, type: 3}
   SpawnChance: 15
---- !u!65 &8808512677885416665
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673172321554250199}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &-4106615008263255646
 NavMeshAgent:
   m_ObjectHideFlags: 0

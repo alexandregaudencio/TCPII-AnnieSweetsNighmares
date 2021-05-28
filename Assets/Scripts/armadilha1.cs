@@ -6,7 +6,7 @@ public class armadilha1 : MonoBehaviour
 {
     public int la, la2;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,21 +17,11 @@ public class armadilha1 : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("urso"))
-        {
-          
-                 if (collision.gameObject.layer == 8)
-                    {
 
-                        Destroy(gameObject);
-                        Destroy(collision.gameObject);
-
-                      }
-        }
     }
-      void OnDestroy()
+    void OnDestroy()
     {
-        playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
+        //playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
         if (la == 1 || la2 == 1)
         {
             playerMenina.instance.jaTem = false;
