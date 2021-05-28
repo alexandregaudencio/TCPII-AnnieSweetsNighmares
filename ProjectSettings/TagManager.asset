@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - tesouro
+  - urso
+  - entrada
+  - LA1
+  - LA2
+  - player
+  - arm
+  - bau
+  - mesa
+  - lixo
+  - trap
+  - botao
+  - entrada2
+  - LA3
+  - LA4
+  - martelo
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - azul
+  - vermelho
+  - verde
+  - mesaEsq
+  - mesaDir
+  - cola
+  - lego
+  - ouro
+  - ChaoInterno
+  - CenarioExterno
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
