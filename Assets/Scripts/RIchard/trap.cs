@@ -11,14 +11,15 @@ public class trap : MonoBehaviour
     public KeyCode TeclaAbrir = KeyCode.E;
 
     public KeyCode usar;
-    public float giroAtual, giroAlvo;
+    public float giroAtual, giroAlvo, posAtual, posAlvo, posAtual2, posAlvo2;
     public int tempoDeVolta;
-    Vector3 rotacaoInicial;
+    Vector3 rotacaoInicial, posicaoInicial;
     float velocidade;
     private GameObject mao;
     private GameObject chave;
 
-
+    public float altura = 15.8f;
+    public float altura2 = 20.0f;
     [Range(0.0f, 150.0f)] public float grausDeGiro = 90.0f;
     public float velocidadeDeGiro = 30, distanciaAtivacao = 3;
 
@@ -33,6 +34,7 @@ public class trap : MonoBehaviour
     float seg = 10;
     float segAtual = 0;
 
+
     private bool ativo, temBotao;
 
 
@@ -40,8 +42,11 @@ public class trap : MonoBehaviour
     void Start()
     {
         giroAtual = 0.0f;
+        posAtual = 0.0f;
+        posAtual2 = 0.0f;
 
         rotacaoInicial = transform.eulerAngles;
+        posicaoInicial = this.transform.position;
 
         ativo = false;
         temBotao = false;
@@ -64,6 +69,8 @@ public class trap : MonoBehaviour
         if (segAtual + tempoDeVolta < seg)
         {
             giroAlvo = 0.0f;
+            posAlvo = 0.0f;
+            posAtual2 = 0.0f;
         }
 
     }
@@ -74,6 +81,8 @@ public class trap : MonoBehaviour
         if (giroAtual < 1.0f && ativo == true && temBotao == true && Input.GetKey(teclaPlayer))
         {
             giroAlvo = grausDeGiro;
+            posAlvo = altura;
+            posAlvo2 = altura2;
             segAtual = seg;
 
         }
@@ -81,6 +90,8 @@ public class trap : MonoBehaviour
 
 
         giroAtual = Mathf.MoveTowards(giroAtual, giroAlvo, velocidadeDeGiro * Time.deltaTime);
+        posAtual = Mathf.MoveTowards(posAtual, posAlvo, velocidadeDeGiro * Time.deltaTime);
+        posAtual2 = Mathf.MoveTowards(posAtual2, posAlvo2, velocidadeDeGiro * Time.deltaTime);
 
 
     }
@@ -92,9 +103,11 @@ public class trap : MonoBehaviour
         {
             case Bater.ir:
                 this.transform.eulerAngles = new Vector3(rotacaoInicial.x + giroAtual, rotacaoInicial.y, rotacaoInicial.z);
+                this.transform.position = new Vector3(posicaoInicial.x, posicaoInicial.y + posAtual, posicaoInicial.z - posAtual2);
                 break;
             case Bater.voltar:
                 this.transform.eulerAngles = new Vector3(rotacaoInicial.x - giroAtual, rotacaoInicial.y, rotacaoInicial.z);
+                this.transform.position = new Vector3(posicaoInicial.x, posicaoInicial.y + posAtual, posicaoInicial.z - posAtual2);
                 break;
         }
     }

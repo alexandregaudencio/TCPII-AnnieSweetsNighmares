@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class armadilha1 : MonoBehaviour
 {
-    public int la, la2;
+    public int la;
 
 
     // Start is called before the first frame update
@@ -12,7 +12,7 @@ public class armadilha1 : MonoBehaviour
     {
         //playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
         la = playerMenina.instance.aonde;
-        la2 = playerMenina2.instance.aonde;
+        //la2 = playerMenina2.instance.aonde;
 
     }
     private void OnTriggerEnter(Collider collision)
@@ -22,26 +22,16 @@ public class armadilha1 : MonoBehaviour
     void OnDestroy()
     {
         //playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
-        if (la == 1 || la2 == 1)
-        {
-            playerMenina.instance.jaTem = false;
-            playerMenina2.instance.jaTem = false;
-        }
-        if (la == 2 || la2 == 2)
-        {
-            playerMenina.instance.jaTem2 = false;
-            playerMenina2.instance.jaTem2 = false;
-        }
-        if (la == 3 || la2 == 3)
-        {
-            playerMenina.instance.jaTem3 = false;
-            playerMenina2.instance.jaTem3 = false;
-        }
-        if (la == 4 || la2 == 4)
-        {
-            playerMenina.instance.jaTem4 = false;
-            playerMenina2.instance.jaTem4 = false;
-        }
+        if (la == 1) playerMenina.instance.jaTem = false;
+
+
+        if (la == 2) playerMenina.instance.jaTem2 = false;
+
+
+        if (la == 3) playerMenina.instance.jaTem3 = false;
+
+
+        if (la == 4) playerMenina.instance.jaTem4 = false;
     }
 }
 

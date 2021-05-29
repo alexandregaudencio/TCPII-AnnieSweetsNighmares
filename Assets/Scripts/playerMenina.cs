@@ -435,7 +435,7 @@ public class playerMenina : MonoBehaviour
                     {
                         if (tempoPoçaCola <= 0)
                         {
-                            Debug.Log("novo item");
+                            //Debug.Log("novo item");
                             obj6Id = 0;
                             obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.5f, 0f), Quaternion.identity);
                             Destroy(obj4);
@@ -457,7 +457,7 @@ public class playerMenina : MonoBehaviour
                     {
                         if (tempoBarreiraLego <= 0)
                         {
-                            Debug.Log("novo item");
+                            //Debug.Log("novo item");
                             obj6Id = 1;
                             obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.2f, 0f), Quaternion.Euler(-90f, 0f, 0));
                             Destroy(obj4);
@@ -479,7 +479,7 @@ public class playerMenina : MonoBehaviour
                     {
                         if (tempoEstrepeLego <= 0)
                         {
-                            Debug.Log("novo item");
+                            //Debug.Log("novo item");
                             obj6Id = 2;
                             obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.5f, 0f), Quaternion.identity);
                             Destroy(obj4);

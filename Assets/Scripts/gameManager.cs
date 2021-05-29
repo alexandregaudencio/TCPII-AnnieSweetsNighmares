@@ -45,7 +45,7 @@ public class gameManager : MonoBehaviour
         {
             pause();
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             restart();
         }

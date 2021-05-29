@@ -79,7 +79,7 @@ public class Ursos : MonoBehaviour
         if (collision.gameObject.CompareTag("tesouro"))
         {
 
-            GameOver.instance.vida = GameOver.instance.vida - 0.5f;
+            GameOver.instance.vida--;
             Destroy(gameObject);
             //Droppar();
             // m_Velocidade = 0;
