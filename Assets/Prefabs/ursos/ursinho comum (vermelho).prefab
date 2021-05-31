@@ -701,7 +701,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 9b679ed0b97df8c4fab2520daf4e2512, type: 3}
+  - {fileID: 2100000, guid: 87471d28ae2407b48810ed6b75b28379, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 4198042084847518604}
   - component: {fileID: 2032437656048439333}
   m_Layer: 9
-  m_Name: ursinho comum
+  m_Name: ursinho comum (vermelho)
   m_TagString: urso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1153,9 +1153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d3fb13854b87344b2641a6bd7c61ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  chave: {fileID: 8376594530254579415, guid: 82a3fb62dfb926b40aefba787cafa095, type: 3}
+  navMeshAgent: {fileID: 3694733683447927960}
+  chave: {fileID: 1318616575947803310, guid: 64c5b1c56405f0b4c923234f61d30413, type: 3}
   SpawnChance: 15
+  speedUrso: 3
 --- !u!136 &4198042084847518604
 CapsuleCollider:
   m_ObjectHideFlags: 0

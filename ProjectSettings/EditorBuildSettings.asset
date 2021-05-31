@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: e53178b33449f5d458e9083aba0377b5
   - enabled: 1
-    path: Assets/Scenes/nao mexer - testeurso 2 players/TesteUrso - Player1.unity
-    guid: acdb6037d54ef7245beb8c4148557793
-  - enabled: 1
-    path: Assets/Scenes/nao mexer - testeurso 2 players/TesteUrso - Player2.unity
-    guid: f0b2c090de8b2eb4e84e43398ce01fa9
+    path: Assets/Scenes/TesteUrso.unity
+    guid: 8eb0d6bafe37e794c94f928c72304059
   m_configObjects: {}

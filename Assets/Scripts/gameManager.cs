@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour
     public GameObject credito;
     public GameObject jogarUi;
     public GameObject jogar;
+    public GameObject twoPlayers;
     public GameObject gameOverUi;
     public GameObject vitoriaUi;
 
@@ -66,7 +67,7 @@ public class gameManager : MonoBehaviour
     }
     public void play2()
     {
-        SceneManager.LoadScene(proximaFase2);
+        SceneManager.LoadScene("TesteUrso");
         // botao.Play();
     }
     public void quit()
@@ -166,4 +167,9 @@ public class gameManager : MonoBehaviour
           menuUi.SetActive(false);
           botao.Play();
       }*/
+
+    public void StartTwoPlayerGame()
+    {
+
+    }
 }

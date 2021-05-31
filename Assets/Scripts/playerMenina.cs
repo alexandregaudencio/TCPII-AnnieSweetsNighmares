@@ -270,15 +270,7 @@ public class playerMenina : MonoBehaviour
         {
             if (segurando == false)
             {
-                if (collision.gameObject.CompareTag("chave"))
-                {
-                    newchave = Instantiate(chave, mao.transform.position, Quaternion.identity);
-                    newchave.transform.parent = mao.transform;
-                    segurando = true;
-                    comKey = true;
-                    Destroy(collision.gameObject);
-
-                }
+                
                 if (collision.gameObject.CompareTag("mesa"))
                 {
                     if (criando == true)
@@ -308,7 +300,7 @@ public class playerMenina : MonoBehaviour
                     if (collision.gameObject.layer == 13)//cola
                     {
                         obj3Id = 0;
-                        RotX1 = -90;
+                        RotX1 = 0;
                         RotY1 = 0;
                         RotZ1 = 0;
 
@@ -316,7 +308,7 @@ public class playerMenina : MonoBehaviour
                     if (collision.gameObject.layer == 14)//lego
                     {
                         obj3Id = 1;
-                        RotX1 = -90;
+                        RotX1 = 0;
                         RotY1 = 0;
                         RotZ1 = 0;
                     }//lego
@@ -325,7 +317,7 @@ public class playerMenina : MonoBehaviour
                     {
                         obj3Id = 2;
                         RotX1 = 0;
-                        RotY1 = 90;
+                        RotY1 = 0;
                         RotZ1 = 0;
 
                     }//cola
@@ -336,8 +328,22 @@ public class playerMenina : MonoBehaviour
                     {
                         obj3.GetComponent<Rigidbody>().isKinematic = true;
                         obj3.transform.position = mao.transform.position;
-                        // obj3.transform.rotation = mao.transform.rotation;
+                        obj3.transform.rotation = mao.transform.rotation;
                         obj3.transform.parent = mao.transform;
+
+                        switch(obj3Id)
+                       {
+                       case 0:
+                       obj3.transform.eulerAngles -= new Vector3 (90.0f, 0.0f, 0.0f);
+                       break;
+                       case 1:
+                       obj3.transform.eulerAngles -= new Vector3 (90.0f, 0.0f, 0.0f);
+                       break;
+                       case 2:            
+                       this.obj3.transform.GetChild(0).gameObject.transform.eulerAngles -= new Vector3 (0.0f, 90.0f, 0.0f);
+                       break;
+                        
+                       }
                     }
                 }
 
@@ -519,7 +525,7 @@ public class playerMenina : MonoBehaviour
     {
         if (Input.GetKey(TeclaMartelo))
         {
-            //armadilha1 armScript = GameObject.Find("armadilha1").GetComponent<armadilha1>();
+                        //armadilha1 armScript = GameObject.Find("armadilha1").GetComponent<armadilha1>();
             if (armMao == true)
             {
 
@@ -531,7 +537,7 @@ public class playerMenina : MonoBehaviour
                         segurando = false;
                         if (obj7Id == 1)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[0].transform.position, Quaternion.Euler(-90f, 90f, 0));
+                            GameObject obj = Instantiate(armArray[obj7Id], LA[0].transform.position, Quaternion.identity);
                         }
                         else
                         {
@@ -554,7 +560,7 @@ public class playerMenina : MonoBehaviour
                         segurando = false;
                         if (obj7Id == 1)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[1].transform.position, Quaternion.Euler(-90f, 90f, 0));
+                            GameObject obj = Instantiate(armArray[obj7Id], LA[1].transform.position, Quaternion.identity);
                         }
                         else
                         {
@@ -574,7 +580,7 @@ public class playerMenina : MonoBehaviour
                         segurando = false;
                         if (obj7Id == 1)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[2].transform.position, Quaternion.Euler(-90f, 90f, 0));
+                            GameObject obj = Instantiate(armArray[obj7Id], LA[2].transform.position, Quaternion.identity);
                         }
                         else
                         {
@@ -597,7 +603,7 @@ public class playerMenina : MonoBehaviour
                         segurando = false;
                         if (obj7Id == 1)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[3].transform.position, Quaternion.Euler(-90f, 90f, 0));
+                            GameObject obj = Instantiate(armArray[obj7Id], LA[3].transform.position, Quaternion.identity);
 
                         }
                         else
@@ -613,11 +619,10 @@ public class playerMenina : MonoBehaviour
 
                 }
             }
-        }
+        
 
 
-        if (Input.GetKey(TeclaMartelo))
-        {
+        
 
             if (collision.gameObject.CompareTag("botao") && comKey == true)
             {
@@ -631,6 +636,21 @@ public class playerMenina : MonoBehaviour
 
 
 
+        
+
+        if (collision.gameObject.CompareTag("chave") && segurando == false)
+                {
+                    newchave = Instantiate(chave, mao.transform.position, Quaternion.identity);
+                    newchave.GetComponent<chaves>().enabled = false;
+                    newchave.transform.position = mao.transform.position + new Vector3 (0.23f, 0.0f, 0.0f);
+                    newchave.transform.rotation = mao.transform.rotation;
+                    newchave.transform.eulerAngles -= new Vector3 (0.0f, 0.0f, 0.0f);
+                    newchave.transform.parent = mao.transform;
+                    segurando = true;
+                    comKey = true;
+                    Destroy(collision.gameObject);
+
+                }
         }
     }
 }

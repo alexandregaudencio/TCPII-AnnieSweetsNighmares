@@ -11,7 +11,7 @@ public class chaves : MonoBehaviour
     void Start()
     {
         this.transform.position += new Vector3(0.0f, 1.0f, 0.0f);
-        this.transform.eulerAngles += new Vector3(-90.0f, 0.0f, 0.0f);
+        this.transform.eulerAngles += new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class chaves : MonoBehaviour
     {
         //mao = this.GameObject;
         //ComPlayer();
-        this.transform.eulerAngles += new Vector3(0.0f, 2.0f, 0.0f);
+        this.transform.eulerAngles += new Vector3(0.0f, 3.8f, 0.0f);
 
     }
 

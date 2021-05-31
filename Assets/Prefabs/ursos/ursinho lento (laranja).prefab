@@ -236,7 +236,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: e9b02f41a7565de4ab9a0c5a543d89e8, type: 3}
+  - {fileID: 2100000, guid: 423bf76061ba50f4c855f76b03e5265c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 5819820153663039479}
   - component: {fileID: 919132149001671697}
   m_Layer: 10
-  m_Name: ursinho lento
+  m_Name: ursinho lento (laranja)
   m_TagString: urso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,9 +396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d3fb13854b87344b2641a6bd7c61ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  chave: {fileID: 8376594530254579415, guid: 82a3fb62dfb926b40aefba787cafa095, type: 3}
+  navMeshAgent: {fileID: 6008651327625929390}
+  chave: {fileID: 1318616575947803310, guid: 64c5b1c56405f0b4c923234f61d30413, type: 3}
   SpawnChance: 15
+  speedUrso: 2
 --- !u!95 &919132149001671697
 Animator:
   serializedVersion: 3
