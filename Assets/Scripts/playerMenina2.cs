@@ -48,7 +48,7 @@ public class playerMenina2 : MonoBehaviour
 
 
     int obj3Id;//id dos materiais na mao  (i)
-    int obj4Id;//id dos materiais na mesa
+    public int obj4Id;//id dos materiais na mesa
     int obj5Id;//id dos materiais na mesa
     int obj6Id;//id das armadilhas prontas ()
     int obj7Id;//id das armadilhas na mao (armId)
@@ -398,7 +398,7 @@ public class playerMenina2 : MonoBehaviour
                                 Destroy(obj3);
                                 segurando = false;
                                 colocadoE = true;
-                                if (obj4Id == 0)//cola
+                               /* if (obj4Id == 0)//cola
                                 {
                                     RotX1 = -90;
                                     RotY1 = 0;
@@ -417,7 +417,7 @@ public class playerMenina2 : MonoBehaviour
                                     RotZ1 = 0;
                                 }
                                 obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
-
+                                */
                             }
                         }
                         if (collision.gameObject.layer == 12)

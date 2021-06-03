@@ -41,7 +41,7 @@ public class playerMenina : MonoBehaviour
 
     GameObject obj1;// armadilha chao1
     GameObject obj2;// armadilha chao2
-    GameObject obj3;//materiais
+    public GameObject obj3;//materiais
     GameObject obj4;//material na mesa esquerda
     GameObject obj5;//material na mesa direita
     GameObject obj6;//armadilha na mesa
@@ -49,9 +49,9 @@ public class playerMenina : MonoBehaviour
 
 
     int obj3Id;//id dos materiais na mao  (i)
-    int obj4Id;//id dos materiais na mesa
-    int obj5Id;//id dos materiais na mesa
-    int obj6Id;//id das armadilhas prontas ()
+    public int obj4Id;//id dos materiais na mesa
+    public int obj5Id;//id dos materiais na mesa
+    public int obj6Id;//id das armadilhas prontas ()
     int obj7Id;//id das armadilhas na mao (armId)
 
 
@@ -61,11 +61,11 @@ public class playerMenina : MonoBehaviour
     float tempoEstrepeLego = 3;//EstrepeLego
 
 
-    bool segurando;//obj3 ou obj7 instanciados na mao ou n
-    bool colocadoE;//colocou material na mesa esquerda
-    bool colocadoD;//colocou material na mesa direita
+    public bool segurando;//obj3 ou obj7 instanciados na mao ou n
+    public bool colocadoE;//colocou material na mesa esquerda
+    public bool colocadoD;//colocou material na mesa direita
     bool criando;//está no processo de criação(colocando os materiais)
-    bool armMao;//se o obj7 está na mão(armadilha na mão)
+    public bool armMao;//se o obj7 está na mão(armadilha na mão)
 
     public bool jaTem;
     public bool jaTem2;
@@ -88,6 +88,9 @@ public class playerMenina : MonoBehaviour
     public int RotX1 { get => RotX; set => RotX = value; }
     public int RotY1 { get => RotY; set => RotY = value; }
     public int RotZ1 { get => RotZ; set => RotZ = value; }
+    public int RotX2 { get => RotX; set => RotX = value; }
+    public int RotY2 { get => RotY; set => RotY = value; }
+    public int RotZ2 { get => RotZ; set => RotZ = value; }
 
     /* public int RotX2 { get => RotX; set => RotX = value; }
     public int RotY2{ get => RotY; set => RotY = value; }
@@ -131,9 +134,12 @@ public class playerMenina : MonoBehaviour
     private void FixedUpdate()
     {
 
-            Move();
-        
+        Move();
+
+        Debug.Log("obj3Id :" + obj3Id);
+
     }
+
 
 
 
@@ -148,7 +154,7 @@ public class playerMenina : MonoBehaviour
         Vector3 normalizedInputVector = new Vector3(movement, 0, movement2);
         if (normalizedInputVector != Vector3.zero)
         {
-            targetVision.transform.position = transform.position + normalizedInputVector*5;
+            targetVision.transform.position = transform.position + normalizedInputVector * 5;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(targetVision.position - transform.position), 10 * Time.fixedDeltaTime);
 
         }
@@ -270,29 +276,54 @@ public class playerMenina : MonoBehaviour
         {
             if (segurando == false)
             {
-                
+
                 if (collision.gameObject.CompareTag("mesa"))
                 {
                     if (criando == true)
                     {
-                        obj7Id = obj6Id;
-                        obj7 = Instantiate(armMesaArray[obj7Id], mao.transform.position, Quaternion.identity);
+                       obj7Id = obj6Id;
+                        if (obj7Id == 0)//cola
+                        {
+
+                            RotX2 = 0;
+                            RotY2 = 0;
+                            RotZ2 = 0;
+
+                        }//metal
+                        if (obj7Id == 1)//lego
+                        {
+
+                            RotX2 = -90;
+                            RotY2 = 0;
+                            RotZ2 = 0;
+                        }//lego
+
+                        if (obj7Id == 2)//ouro
+                        {
+
+                            RotX2 = 0;
+                            RotY2 = 0;
+                            RotZ2 =0 ;
+
+                        }//cola
+                       
+                        obj7 = Instantiate(armMesaArray[obj7Id], mao.transform.position, Quaternion.Euler(RotX2, RotY2, RotZ2));
                         if (obj7.GetComponent<Rigidbody>())
                         {
                             obj7.GetComponent<Rigidbody>().isKinematic = true;
                             obj7.transform.position = mao.transform.position;
-                            obj7.transform.rotation = mao.transform.rotation;
+                            //obj7.transform.rotation = mao.transform.rotation;
                             obj7.transform.parent = mao.transform;
                         }
                         Destroy(obj6);
                         criando = false;
-                        colocadoE = false;
-                        colocadoD = false;
+                        MesaEsquerda.instance.colocadoE = false;
+                        MesaEsquerda.instance.colocadoD = false;
                         armMao = true;
                         segurando = true;
 
-                        obj5Id = 5;
-                        obj4Id = 5;
+                        MesaEsquerda.instance.obj5ID = 5;
+                        MesaEsquerda.instance.obj4ID = 5;
                     }
                 }
                 if (collision.gameObject.CompareTag("bau"))
@@ -331,19 +362,19 @@ public class playerMenina : MonoBehaviour
                         obj3.transform.rotation = mao.transform.rotation;
                         obj3.transform.parent = mao.transform;
 
-                        switch(obj3Id)
-                       {
-                       case 0:
-                       obj3.transform.eulerAngles -= new Vector3 (90.0f, 0.0f, 0.0f);
-                       break;
-                       case 1:
-                       obj3.transform.eulerAngles -= new Vector3 (90.0f, 0.0f, 0.0f);
-                       break;
-                       case 2:            
-                       this.obj3.transform.GetChild(0).gameObject.transform.eulerAngles -= new Vector3 (0.0f, 90.0f, 0.0f);
-                       break;
-                        
-                       }
+                        switch (obj3Id)
+                        {
+                            case 0:
+                                obj3.transform.eulerAngles -= new Vector3(90.0f, 0.0f, 0.0f);
+                                break;
+                            case 1:
+                                obj3.transform.eulerAngles -= new Vector3(90.0f, 0.0f, 0.0f);
+                                break;
+                            case 2:
+                                this.obj3.transform.GetChild(0).gameObject.transform.eulerAngles -= new Vector3(0.0f, 90.0f, 0.0f);
+                                break;
+
+                        }
                     }
                 }
 
@@ -366,62 +397,63 @@ public class playerMenina : MonoBehaviour
                     {
                         if (collision.gameObject.layer == 11)
                         {
-                            if (colocadoE == false)
+                            if (MesaEsquerda.instance.colocadoE == false)
                             {
 
-                                obj4Id = obj3Id;
+                                MesaEsquerda.instance.obj4ID = obj3Id;
                                 Destroy(obj3);
                                 segurando = false;
-                                colocadoE = true;
-                                if (obj4Id == 0)//cola
+                                MesaEsquerda.instance.colocadoE = true;
+                                if (MesaEsquerda.instance.obj4ID == 0)//cola
                                 {
                                     RotX1 = -90;
                                     RotY1 = 0;
                                     RotZ1 = 0;
                                 }
-                                if (obj4Id == 1)//lego
+                                if (MesaEsquerda.instance.obj4ID == 1)//lego
                                 {
                                     RotX1 = -90;
                                     RotY1 = 0;
                                     RotZ1 = 0;
                                 }
-                                if (obj4Id == 2)//ouro
+                                if (MesaEsquerda.instance.obj4ID == 2)//ouro
                                 {
                                     RotX1 = 0;
                                     RotY1 = 90;
                                     RotZ1 = 0;
                                 }
-                                obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
+                                MesaEsquerda.instance.obj4 = Instantiate(materiaisArray[MesaEsquerda.instance.obj4ID], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
 
                             }
                         }
                         if (collision.gameObject.layer == 12)
                         {
-                            if (colocadoD == false)
+                            if (MesaEsquerda.instance.colocadoD == false)
                             {
-                                obj5Id = obj3Id;
+                                MesaEsquerda.instance.obj5ID = obj3Id;
                                 Destroy(obj3);
                                 segurando = false;
-                                colocadoD = true;
-                                if (obj5Id == 0)//cola
+                                MesaEsquerda.instance.colocadoD = true;
+                                if (MesaEsquerda.instance.obj5ID == 0)//cola
                                 {
                                     RotX1 = -90;
                                     RotY1 = 0;
                                     RotZ1 = 0;
                                 }
-                                if (obj5Id == 1)//lego
+                                if (MesaEsquerda.instance.obj5ID == 1)//lego
                                 {
                                     RotX1 = -90;
                                     RotY1 = 0;
                                     RotZ1 = 0;
                                 }
-                                if (obj5Id == 2)//ouro
+                                if (MesaEsquerda.instance.obj5ID == 2)//ouro
                                 {
+                                    RotX1 = 0;
                                     RotX1 = 0;
                                     RotY1 = 90;
                                     RotZ1 = 0;
                                 }
-                                obj5 = Instantiate(materiaisArray[obj5Id], mesaArray[1].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
+                                MesaEsquerda.instance.obj5 = Instantiate(materiaisArray[MesaEsquerda.instance.obj5ID], mesaArray[1].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
 
                             }
                         }
@@ -437,220 +469,214 @@ public class playerMenina : MonoBehaviour
             {
                 if (criando == false)
                 {
-                    if (obj4Id == 0 && obj5Id == 0)//poça de cola
+                    if (MesaEsquerda.instance.obj4ID == 0 && MesaEsquerda.instance.obj5ID == 0)//poça de cola
                     {
                         if (tempoPoçaCola <= 0)
                         {
                             //Debug.Log("novo item");
                             obj6Id = 0;
-                            obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.5f, 0f), Quaternion.identity);
-                            Destroy(obj4);
-                            Destroy(obj5);
+                           obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.5f, 0f), Quaternion.identity);
+                            Destroy(MesaEsquerda.instance.obj4);
+                            Destroy(MesaEsquerda.instance.obj5);
                             criando = true;
-                            obj5Id = 5;
-                            obj4Id = 5;
+                            MesaEsquerda.instance.obj5ID = 5;
+                            MesaEsquerda.instance.obj4ID= 5;
                             tempoPoçaCola = 1;
                         }
                         else
                         {
-                            colocadoE = true;
-                            colocadoD = true;
+                            MesaEsquerda.instance.colocadoE = true;
+                            MesaEsquerda.instance.colocadoD = true;
                             tempoPoçaCola -= Time.deltaTime;
                             //Debug.Log(tempo0);
                         }
                     }
-                    if (obj4Id == 1 && obj5Id == 1)//barreira de lego
+                    if (MesaEsquerda.instance.obj4ID == 1 && MesaEsquerda.instance.obj5ID == 1)//barreira de lego
                     {
                         if (tempoBarreiraLego <= 0)
                         {
                             //Debug.Log("novo item");
                             obj6Id = 1;
                             obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.2f, 0f), Quaternion.Euler(-90f, 0f, 0));
-                            Destroy(obj4);
-                            Destroy(obj5);
+                            Destroy(MesaEsquerda.instance.obj4);
+                            Destroy(MesaEsquerda.instance.obj5);
                             criando = true;
-                            obj5Id = 5;
-                            obj4Id = 5;
+                            MesaEsquerda.instance.obj5ID = 5;
+                            MesaEsquerda.instance.obj4ID = 5;
                             tempoBarreiraLego = 2;
                         }
                         else
                         {
-                            colocadoE = true;
-                            colocadoD = true;
+                            MesaEsquerda.instance.colocadoE = true;
+                            MesaEsquerda.instance.colocadoD = true;
                             tempoBarreiraLego -= Time.deltaTime;
                             //Debug.Log(tempo1);
                         }
                     }
-                    if (obj4Id == 1 && obj5Id == 2 || obj4Id == 2 && obj5Id == 1)// estrepe de lego
+                    if (MesaEsquerda.instance.obj4ID == 1 && MesaEsquerda.instance.obj5ID == 2 || MesaEsquerda.instance.obj4ID == 2 && MesaEsquerda.instance.obj5ID == 1)// estrepe de lego
                     {
                         if (tempoEstrepeLego <= 0)
                         {
                             //Debug.Log("novo item");
                             obj6Id = 2;
                             obj6 = Instantiate(armMesaArray[obj6Id], mesaArray[0].transform.position + new Vector3(0, 0.5f, 0f), Quaternion.identity);
-                            Destroy(obj4);
-                            Destroy(obj5);
+                            Destroy(MesaEsquerda.instance.obj4);
+                            Destroy(MesaEsquerda.instance.obj5);
                             criando = true;
-                            obj5Id = 5;
-                            obj4Id = 5;
+                            MesaEsquerda.instance.obj5ID = 5;
+                            MesaEsquerda.instance.obj4ID = 5;
                             tempoEstrepeLego = 3;
 
                         }
                         else
                         {
-                            colocadoE = true;
-                            colocadoD = true;
+                            MesaEsquerda.instance.colocadoE = true;
+                            MesaEsquerda.instance.colocadoD = true;
                             tempoEstrepeLego -= Time.deltaTime;
                             //Debug.Log(tempo2);
                         }
                     }
-                    else if (obj4Id == 0 && obj5Id == 2 || (obj4Id == 2 && obj5Id == 0) || (obj4Id == 0 && obj5Id == 1) || (obj4Id == 1 && obj5Id == 0) || (obj4Id == 2 && obj5Id == 2))
+                    else if ((MesaEsquerda.instance.obj4ID == 0 && MesaEsquerda.instance.obj5ID == 2) || (MesaEsquerda.instance.obj4ID == 2 && MesaEsquerda.instance.obj5ID == 0) || (MesaEsquerda.instance.obj4ID == 0 && MesaEsquerda.instance.obj5ID == 1) || (MesaEsquerda.instance.obj4ID == 1 && MesaEsquerda.instance.obj5ID == 0) || (MesaEsquerda.instance.obj4ID == 2 && MesaEsquerda.instance.obj5ID == 2))
                     {
-                        Destroy(obj4);
-                        Destroy(obj5);
-                        obj5Id = 5;
-                        obj4Id = 5;
-                        colocadoE = false;
-                        colocadoD = false;
+                        Destroy(MesaEsquerda.instance.obj4);
+                        Destroy(MesaEsquerda.instance.obj5);
+                        MesaEsquerda.instance.obj5ID = 5;
+                        MesaEsquerda.instance.obj4ID = 5;
+                        MesaEsquerda.instance.colocadoE = false;
+                        MesaEsquerda.instance.colocadoD = false;
 
+                         }
                     }
-                }
 
+                }
             }
         }
-    }
 
 
-    private void OnTriggerStay(Collider collision)
-    {
-        if (Input.GetKey(TeclaMartelo))
+        private void OnTriggerStay(Collider collision)
         {
-                        //armadilha1 armScript = GameObject.Find("armadilha1").GetComponent<armadilha1>();
-            if (armMao == true)
+            if (Input.GetKey(TeclaMartelo))
             {
+                //armadilha1 armScript = GameObject.Find("armadilha1").GetComponent<armadilha1>();
+                if (armMao == true)
+                {
+                if (obj7Id == 0)//poça cola
+                {
 
+                    RotX1 = 90;
+                    RotY1 = 90;
+                    RotZ1 = 90;
+
+                }//metal
+                if (obj7Id == 1)//muro lego
+                {
+
+                    RotX1 = -90;
+                    RotY1 = 90;
+                    RotZ1 = 0;
+                }//lego
+
+                if (obj7Id == 2)//estrepe de lego
+                {
+
+                    RotX1 = 0;
+                    RotY1 = 20;
+                    RotZ1 = 0;
+
+                }//cola
                 if (collision.gameObject.CompareTag("LA1"))
-                {
-                    if (jaTem == false)
                     {
-                        armMao = false;
-                        segurando = false;
-                        if (obj7Id == 1)
+                        if (jaTem == false)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[0].transform.position, Quaternion.identity);
+                            armMao = false;
+                            segurando = false;
+                            GameObject obj = Instantiate(armArray[obj7Id], LA[0].transform.position, Quaternion.Euler(RotX1, RotY1, RotZ1));
+                            Destroy(obj7);
+                            jaTem = true;
+                            //armadilha1.instance.la = 1;
+                            aonde = 1;
+                            //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
+
                         }
-                        else
-                        {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[0].transform.position, Quaternion.identity);
-                        }
-                        Destroy(obj7);
-                        jaTem = true;
-                        //armadilha1.instance.la = 1;
-                        aonde = 1;
-                        //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
 
                     }
-
-                }
-                if (collision.gameObject.CompareTag("LA2"))
-                {
-                    if (jaTem2 == false)
+                    if (collision.gameObject.CompareTag("LA2"))
                     {
-                        armMao = false;
-                        segurando = false;
-                        if (obj7Id == 1)
+                        if (jaTem2 == false)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[1].transform.position, Quaternion.identity);
+                            armMao = false;
+                            segurando = false;
+                           GameObject obj = Instantiate(armArray[obj7Id], LA[1].transform.position, Quaternion.Euler(RotX1, RotY1, RotZ1));
+                            Destroy(obj7);
+                            jaTem2 = true;
+                            //armadilha1.instance.la = 2;
+                            aonde = 2;
                         }
-                        else
-                        {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[1].transform.position, Quaternion.identity);
-                        }
-                        Destroy(obj7);
-                        jaTem2 = true;
-                        //armadilha1.instance.la = 2;
-                        aonde = 2;
                     }
-                }
-                if (collision.gameObject.CompareTag("LA3"))
-                {
-                    if (jaTem3 == false)
+                    if (collision.gameObject.CompareTag("LA3"))
                     {
-                        armMao = false;
-                        segurando = false;
-                        if (obj7Id == 1)
+                        if (jaTem3 == false)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[2].transform.position, Quaternion.identity);
+                            armMao = false;
+                            segurando = false;
+                             GameObject obj = Instantiate(armArray[obj7Id], LA[2].transform.position,Quaternion.Euler(RotX1, RotY1, RotZ1));
+                             Destroy(obj7);
+                            jaTem3 = true;
+                            //armadilha1.instance.la = 3;
+                            aonde = 3;
+                            //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
+
                         }
-                        else
-                        {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[2].transform.position, Quaternion.identity);
-                        }
-                        Destroy(obj7);
-                        jaTem3 = true;
-                        //armadilha1.instance.la = 3;
-                        aonde = 3;
-                        //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
 
                     }
-
-                }
-                if (collision.gameObject.CompareTag("LA4"))
-                {
-                    if (jaTem4 == false)
+                    if (collision.gameObject.CompareTag("LA4"))
                     {
-                        armMao = false;
-                        segurando = false;
-                        if (obj7Id == 1)
+                        if (jaTem4 == false)
                         {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[3].transform.position, Quaternion.identity);
+                            armMao = false;
+                            segurando = false;
+                            GameObject obj = Instantiate(armArray[obj7Id], LA[3].transform.position,Quaternion.Euler(RotX1, RotY1, RotZ1));
+                            Destroy(obj7);
+                            jaTem4 = true;
+                            aonde = 4;
+                            //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
 
                         }
-                        else
-                        {
-                            GameObject obj = Instantiate(armArray[obj7Id], LA[3].transform.position, Quaternion.identity);
-                        }
-                        Destroy(obj7);
-                        jaTem4 = true;
-                        aonde = 4;
-                        //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
 
                     }
+                }
+
+
+
+
+
+                if (collision.gameObject.CompareTag("botao") && comKey == true)
+                {
+
+                    newchave.SetActive(false);
+                    comKey = false;
+                    segurando = false;
+                    Destroy(newchave, 2);
 
                 }
-            }
-        
-
-
-        
-
-            if (collision.gameObject.CompareTag("botao") && comKey == true)
-            {
-
-                newchave.SetActive(false);
-                comKey = false;
-                segurando = false;
-                Destroy(newchave, 2);
-
-            }
 
 
 
-        
 
-        if (collision.gameObject.CompareTag("chave") && segurando == false)
+
+                if (collision.gameObject.CompareTag("chave") && segurando == false)
                 {
                     newchave = Instantiate(chave, mao.transform.position, Quaternion.identity);
                     newchave.GetComponent<chaves>().enabled = false;
-                    newchave.transform.position = mao.transform.position + new Vector3 (0.23f, 0.0f, 0.0f);
+                    newchave.transform.position = mao.transform.position + new Vector3(0.23f, 0.0f, 0.0f);
                     newchave.transform.rotation = mao.transform.rotation;
-                    newchave.transform.eulerAngles -= new Vector3 (0.0f, 0.0f, 0.0f);
+                    newchave.transform.eulerAngles -= new Vector3(0.0f, 0.0f, 0.0f);
                     newchave.transform.parent = mao.transform;
                     segurando = true;
                     comKey = true;
                     Destroy(collision.gameObject);
 
                 }
+            }
         }
     }
-}
