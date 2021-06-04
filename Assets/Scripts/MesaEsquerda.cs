@@ -13,7 +13,11 @@ public class MesaEsquerda : MonoBehaviour
 
     public bool colocadoE;
     public bool colocadoD;
-    
+    public bool jaTem;
+    public bool jaTem2;
+    public bool jaTem3;
+    public bool jaTem4;
+
     void Start()
     {
         obj4ID = 5;

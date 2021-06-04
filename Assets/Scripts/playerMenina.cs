@@ -302,7 +302,7 @@ public class playerMenina : MonoBehaviour
                         {
 
                             RotX2 = 0;
-                            RotY2 = 0;
+                            RotY2 = -85;
                             RotZ2 =0 ;
 
                         }//cola
@@ -586,13 +586,13 @@ public class playerMenina : MonoBehaviour
                 }//cola
                 if (collision.gameObject.CompareTag("LA1"))
                     {
-                        if (jaTem == false)
+                        if (MesaEsquerda.instance.jaTem == false)
                         {
                             armMao = false;
                             segurando = false;
                             GameObject obj = Instantiate(armArray[obj7Id], LA[0].transform.position, Quaternion.Euler(RotX1, RotY1, RotZ1));
                             Destroy(obj7);
-                            jaTem = true;
+                            MesaEsquerda.instance.jaTem = true;
                             //armadilha1.instance.la = 1;
                             aonde = 1;
                             //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
@@ -602,26 +602,26 @@ public class playerMenina : MonoBehaviour
                     }
                     if (collision.gameObject.CompareTag("LA2"))
                     {
-                        if (jaTem2 == false)
+                        if (MesaEsquerda.instance.jaTem2 == false)
                         {
                             armMao = false;
                             segurando = false;
                            GameObject obj = Instantiate(armArray[obj7Id], LA[1].transform.position, Quaternion.Euler(RotX1, RotY1, RotZ1));
                             Destroy(obj7);
-                            jaTem2 = true;
+                        MesaEsquerda.instance.jaTem2 = true;
                             //armadilha1.instance.la = 2;
                             aonde = 2;
                         }
                     }
                     if (collision.gameObject.CompareTag("LA3"))
                     {
-                        if (jaTem3 == false)
+                        if (MesaEsquerda.instance.jaTem3 == false)
                         {
                             armMao = false;
                             segurando = false;
                              GameObject obj = Instantiate(armArray[obj7Id], LA[2].transform.position,Quaternion.Euler(RotX1, RotY1, RotZ1));
                              Destroy(obj7);
-                            jaTem3 = true;
+                        MesaEsquerda.instance.jaTem3 = true;
                             //armadilha1.instance.la = 3;
                             aonde = 3;
                             //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
@@ -631,13 +631,13 @@ public class playerMenina : MonoBehaviour
                     }
                     if (collision.gameObject.CompareTag("LA4"))
                     {
-                        if (jaTem4 == false)
+                        if (MesaEsquerda.instance.jaTem4 == false)
                         {
                             armMao = false;
                             segurando = false;
                             GameObject obj = Instantiate(armArray[obj7Id], LA[3].transform.position,Quaternion.Euler(RotX1, RotY1, RotZ1));
                             Destroy(obj7);
-                            jaTem4 = true;
+                        MesaEsquerda.instance.jaTem4 = true;
                             aonde = 4;
                             //armadilha1 armadilha1 = GameObject.Find("armadilha1").GetComponent<armadilha1>();
 

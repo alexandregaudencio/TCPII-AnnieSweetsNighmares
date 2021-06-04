@@ -24,16 +24,16 @@ public class armadilha2 : MonoBehaviour
     void OnDestroy()
     {
         //playerMenina playerScript = GameObject.FindWithTag("player").GetComponent<playerMenina>();
-        if (la == 1) playerMenina.instance.jaTem = false;
+        if (la == 1) MesaEsquerda.instance.jaTem = false;
 
 
-        if (la == 2) playerMenina.instance.jaTem2 = false;
+        if (la == 2) MesaEsquerda.instance.jaTem2 = false;
 
 
-        if (la == 3) playerMenina.instance.jaTem3 = false;
+        if (la == 3) MesaEsquerda.instance.jaTem3 = false;
 
 
-        if (la == 4) playerMenina.instance.jaTem4 = false;
+        if (la == 4) MesaEsquerda.instance.jaTem4 = false;
 
     }
 }

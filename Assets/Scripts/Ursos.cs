@@ -20,13 +20,15 @@ public class Ursos : MonoBehaviour
     public int SpawnChance;
     public float speedUrso;
 
+    int animUrsoRapido;
+
     private int id;
     private enum Urso { red, orange, blue };
     private Urso urso;
 
 
 
-
+    private Animator anim;
 
 
 
@@ -42,7 +44,7 @@ public class Ursos : MonoBehaviour
         id = gameObject.layer;
         spawn = Random.Range(0, SpawnChance);
 
-        
+        anim = GetComponent<Animator>();
 
         if (id == 8) urso = Urso.blue;
         else if (id == 9) urso = Urso.red;
@@ -57,12 +59,34 @@ public class Ursos : MonoBehaviour
         navMeshAgent.SetDestination(alvo);
         eu = this.transform.position;
         takeUrso();
-
+        animUrsoRapido = Random.Range(0, 100);
+        Debug.Log("animUrsoRapido "+ animUrsoRapido);
     }
 
     public void Droppar()
     {
-        Destroy(gameObject);
+        if(id == 9)
+        {
+            anim.SetBool("colidiu", true);
+            Destroy(gameObject, 4f);
+                navMeshAgent.speed = 0;
+        }
+        if (id == 8)
+        {
+           
+            if(animUrsoRapido<50) anim.SetBool("colidiuPe", true);
+            if (animUrsoRapido>= 50) anim.SetBool("colidiuCaiu", true);
+            Destroy(gameObject, 2f);
+            navMeshAgent.speed = 0;
+        }
+        if (id == 10)
+        {
+            anim.SetBool("colidiu", true);
+             Destroy(gameObject, 3f);
+            navMeshAgent.speed = 0;
+        }
+       
+        
         if (spawn > 1)
         {
             Instantiate(chave, eu, Quaternion.identity);
@@ -96,6 +120,7 @@ public class Ursos : MonoBehaviour
         {
 
             GameOver.instance.vida--;
+            //anim.SetBool("colidiu", true);
             Droppar();
             Destroy(gameObject);
             // m_Velocidade = 0;
@@ -107,18 +132,19 @@ public class Ursos : MonoBehaviour
 
             if (id == 8 && collision.gameObject.layer == 13)
             {
+               
                 Droppar();
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject,2f);
             }
             if (id == 9 && collision.gameObject.layer == 14)
             {
                 Droppar();
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject,4f);
             }
             if (id == 10 && collision.gameObject.layer == 15)
             {
                 Droppar();
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject,3f);
             }
         }
 
