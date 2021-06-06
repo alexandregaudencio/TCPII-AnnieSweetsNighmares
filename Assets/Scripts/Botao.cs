@@ -8,30 +8,48 @@ public class Botao : MonoBehaviour
     private GameObject player;
     public bool ativou;
     public bool gastarChave;
-
+    private Animator anim;
     public KeyCode TeclaPlayer;
     float seg, segAtual;
     // Start is called before the first frame update
     void Start()
     {
+        seg = 0.0f;
         ativou = false;
         gastarChave = false;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+      seg += Time.deltaTime;
+
+    if(Input.GetKey(TeclaPlayer) && gastarChave == true){
+         segAtual = seg;   
+        
+         
+        
+        if(seg < segAtual + 5.0f)  {
+          anim.SetBool("ativacao", true);
+ this.transform.GetChild(3).gameObject.SetActive(true); 
+        
+        }else
+            anim.SetBool("ativacao", false);
+            this.transform.GetChild(3).gameObject.SetActive(false);
+        
+        
+
+    } 
+
+    
+        }
 
 
-        // if (gastarChave == true)
-        // {
-        //     ativou = true;
-        // }
-        //else GastarChave();
-
-    }
-
+public void Animation(){
+ 
+}
     /* 
         public void GastarChave()
         {
@@ -49,7 +67,7 @@ public class Botao : MonoBehaviour
 
         } */
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
 
         if (collision.gameObject.CompareTag("player"))
@@ -59,6 +77,8 @@ public class Botao : MonoBehaviour
             player = collision.gameObject;
             gastarChave = player.GetComponent<playerMenina>().comKey;
             TeclaPlayer = player.GetComponent<playerMenina>().TeclaMartelo;
+            
+            
             //player = collision.gameObject;
             //Destroy(collision.gameObject);
             //this.gameObject.SetActive(false);

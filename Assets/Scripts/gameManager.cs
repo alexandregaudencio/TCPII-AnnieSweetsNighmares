@@ -60,6 +60,12 @@ public class gameManager : MonoBehaviour
         vitoriaUi.SetActive(false);
 
     }
+
+    public void MenuPrincipal()
+    {
+        SceneManager.LoadScene("Menu");
+        // botao.Play();
+    }
     public void play1()
     {
         SceneManager.LoadScene(proximaFase1);
@@ -67,9 +73,17 @@ public class gameManager : MonoBehaviour
     }
     public void play2()
     {
+
         SceneManager.LoadScene("TesteUrso");
         // botao.Play();
     }
+
+    public void CreateInvoke(string functionName)
+    {
+        Invoke(functionName, 1.0f);
+    }
+
+
     public void quit()
     {
         Application.Quit();

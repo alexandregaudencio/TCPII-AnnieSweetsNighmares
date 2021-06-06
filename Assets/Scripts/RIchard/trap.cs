@@ -10,7 +10,7 @@ public class trap : MonoBehaviour
     public GameObject botao;
     public KeyCode TeclaAbrir = KeyCode.E;
 
-    public KeyCode usar;
+   // public KeyCode usar;
     public float giroAtual, giroAlvo, posAtual, posAlvo, posAtual2, posAlvo2;
     public int tempoDeVolta;
     Vector3 rotacaoInicial, posicaoInicial;

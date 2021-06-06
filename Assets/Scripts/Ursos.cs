@@ -30,7 +30,7 @@ public class Ursos : MonoBehaviour
 
     private Animator anim;
 
-
+   
 
 
     // Start is called before the first frame update
@@ -60,7 +60,9 @@ public class Ursos : MonoBehaviour
         eu = this.transform.position;
         takeUrso();
         animUrsoRapido = Random.Range(0, 100);
-        Debug.Log("animUrsoRapido "+ animUrsoRapido);
+        Debug.Log("animUrsoRapido " + animUrsoRapido);
+        
+       
     }
 
     public void Droppar()

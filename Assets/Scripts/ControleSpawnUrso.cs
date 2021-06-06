@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class ControleSpawnUrso : MonoBehaviour
 {
+    //[SerializeField] private float gameTime;
+    //TempoTeste tempoTeste;
     [SerializeField] private spawUrso[] spawUrso;
     [SerializeField] private float spawnInterval = 10f;
 
-    [SerializeField] private bool spawningAtEveryPoints;
-    [SerializeField] [Range(0,3)] private int spawnCount = 0;
+     private int spawnAtEveryPointCount = 5;
+    private bool spawningAtEveryPoints;
+    [SerializeField] [Range(0, 5)] private int spawnCount = 0;
     public static ControleSpawnUrso instance;
+
     public float speedUrsoMultiplicador;
 
         float Timer = 0f;
@@ -18,6 +22,8 @@ public class ControleSpawnUrso : MonoBehaviour
     private void Start()
     {
         instance = this;
+        //tempoTeste = GetComponent<TempoTeste>();
+        //tempoTeste.timeValue = gameTime;
     }
 
 
@@ -32,7 +38,7 @@ public class ControleSpawnUrso : MonoBehaviour
             Timer = 0;
         }
 
-        if(spawnCount >=3)
+        if(spawnCount >= spawnAtEveryPointCount)
         {
             spawningAtEveryPoints = true;
         }

@@ -118,13 +118,24 @@ public class playerMenina2 : MonoBehaviour
 
 
 
-    public void noLixo()
+    /* public void noLixo(string s)
     {
-        myFx.PlayOneShot(JogarNoLixo);
-    }
+
+        switch (s)
+        {
+            case "lixo":
+                myFx.PlayOneShot(JogarNoLixo);
+
+            case "cola":
+                myFx.PlayOneShot(JogarCola);
+
+
+        }
+
+    } */
     public void jogarCola()
     {
-        myFx.PlayOneShot(JogarCola);
+
     }
     public void jogarLego()
     {
@@ -305,6 +316,7 @@ public class playerMenina2 : MonoBehaviour
                     comKey = true;
                     Destroy(collision.gameObject);
 
+
                 }
                 if (collision.gameObject.CompareTag("mesa"))
                 {
@@ -382,7 +394,7 @@ public class playerMenina2 : MonoBehaviour
                     Destroy(obj7);
                     segurando = false;
                     armMao = false;
-                    noLixo();
+                    //noLixo();
 
                 }
                 if (collision.gameObject.CompareTag("mesa"))
@@ -398,26 +410,26 @@ public class playerMenina2 : MonoBehaviour
                                 Destroy(obj3);
                                 segurando = false;
                                 colocadoE = true;
-                               /* if (obj4Id == 0)//cola
-                                {
-                                    RotX1 = -90;
-                                    RotY1 = 0;
-                                    RotZ1 = 0;
-                                }
-                                if (obj4Id == 1)//lego
-                                {
-                                    RotX1 = -90;
-                                    RotY1 = 0;
-                                    RotZ1 = 0;
-                                }
-                                if (obj4Id == 2)//ouro
-                                {
-                                    RotX1 = 0;
-                                    RotY1 = 90;
-                                    RotZ1 = 0;
-                                }
-                                obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
-                                */
+                                /* if (obj4Id == 0)//cola
+                                 {
+                                     RotX1 = -90;
+                                     RotY1 = 0;
+                                     RotZ1 = 0;
+                                 }
+                                 if (obj4Id == 1)//lego
+                                 {
+                                     RotX1 = -90;
+                                     RotY1 = 0;
+                                     RotZ1 = 0;
+                                 }
+                                 if (obj4Id == 2)//ouro
+                                 {
+                                     RotX1 = 0;
+                                     RotY1 = 90;
+                                     RotZ1 = 0;
+                                 }
+                                 obj4 = Instantiate(materiaisArray[obj4Id], mesaArray[0].transform.position + new Vector3(0, 0.4f, 0f), Quaternion.Euler(RotX1, RotY1, RotZ1));
+                                 */
                             }
                         }
                         if (collision.gameObject.layer == 12)
@@ -534,7 +546,7 @@ public class playerMenina2 : MonoBehaviour
                     }
                     else if (obj4Id == 0 && obj5Id == 2 || (obj4Id == 2 && obj5Id == 0) || (obj4Id == 0 && obj5Id == 1) || (obj4Id == 1 && obj5Id == 0) || (obj4Id == 2 && obj5Id == 2))
                     {
-                        noLixo();
+                        //noLixo();
                         Destroy(obj4);
                         Destroy(obj5);
                         obj5Id = 5;
