@@ -6,13 +6,13 @@ public class trap : MonoBehaviour
 {
 
     private GameObject Jogador;
-    public KeyCode teclaPlayer;
-    public GameObject botao;
+    public KeyCode teclaPlayer;    
     public KeyCode TeclaAbrir = KeyCode.E;
+    public GameObject botao;
 
    // public KeyCode usar;
     public float giroAtual, giroAlvo, posAtual, posAlvo, posAtual2, posAlvo2;
-    public int tempoDeVolta;
+    public float tempoDeVolta;
     Vector3 rotacaoInicial, posicaoInicial;
     float velocidade;
     private GameObject mao;
@@ -30,12 +30,19 @@ public class trap : MonoBehaviour
     public enum Bater { ir, voltar };
     public Bater Rotacao = Bater.ir;
 
+public AudioSource myFx;
+public AudioClip  batidaMartelo;
+
+public GameObject Portao;
+    private Animator anim;
 
     float seg = 10;
     float segAtual = 0;
 
 
-    private bool ativo, temBotao;
+    public bool ativo, temBotao;
+    public bool fechou = false;
+    bool veri;
 
 
     // Start is called before the first frame update
@@ -50,7 +57,8 @@ public class trap : MonoBehaviour
 
         ativo = false;
         temBotao = false;
-
+        myFx = GetComponent<AudioSource>();
+       
 
     }
 
@@ -65,28 +73,42 @@ public class trap : MonoBehaviour
 
         seg += Time.deltaTime;
 
-
-        if (segAtual + tempoDeVolta < seg)
-        {
-            giroAlvo = 0.0f;
-            posAlvo = 0.0f;
-            posAtual2 = 0.0f;
-        }
+if(segAtual + tempoDeVolta + 1f < seg){
+    veri = false;
+} 
+else veri = true;
+       
 
     }
 
     void ControlarPorta()
     {
 
-        if (giroAtual < 1.0f && ativo == true && temBotao == true && Input.GetKey(teclaPlayer))
+        if ( Input.GetKey(teclaPlayer) && ativo == true && temBotao == true && giroAtual < 2f)
         {
+            segAtual = seg;
+            fechou = true;
+
+        }  
+                               
+            if(segAtual + tempoDeVolta < seg && veri){
+
+           
             giroAlvo = grausDeGiro;
             posAlvo = altura;
             posAlvo2 = altura2;
-            segAtual = seg;
+            myFx.PlayOneShot(batidaMartelo);
 
-        }
 
+            }
+            else if (segAtual + tempoDeVolta < seg){
+
+                 giroAlvo = 0.0f;
+            posAlvo = 0.0f;
+            posAtual2 = 0.0f;
+            fechou = false;
+            }
+        
 
 
         giroAtual = Mathf.MoveTowards(giroAtual, giroAlvo, velocidadeDeGiro * Time.deltaTime);

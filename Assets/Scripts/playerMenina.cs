@@ -18,7 +18,7 @@ public class playerMenina : MonoBehaviour
 
 
     //Martelo
-    public GameObject botao;
+    //public GameObject botao;
     public GameObject chave;
     public bool comKey = false;
     private GameObject newchave;
@@ -106,8 +106,13 @@ public class playerMenina : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         anim = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
+        myFx = GetComponent<AudioSource>();
+        myFx.Play(0);
+        myFx.Pause();
+        
         jaTem = false;
         jaTem2 = false;
         jaTem3 = false;
@@ -126,6 +131,8 @@ public class playerMenina : MonoBehaviour
         instance = this;
 
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -173,92 +180,16 @@ public class playerMenina : MonoBehaviour
         if (movement != 0.00f || movement2 != 0.00f)
         {
             anim.SetBool("andando", true);
+            myFx.UnPause();
         }
         else
         {
             anim.SetBool("andando", false);
+            myFx.Pause();
 
         }
 
-        //if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) ||
-        //Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
-        //{
-
-        //    //movement = Input.GetAxisRaw("Horizontal");
-        //    //movement2 = Input.GetAxisRaw("Vertical");
-
-
-        //    //rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //else
-        //{
-        //    //movement = Input.GetAxisRaw("Horizontal");
-        //    //movement2 = Input.GetAxisRaw("Vertical");
-        //}
-
-
-
-        //if (movement == 1)
-        //    transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, 90, 1), 0);
-        //else if (movement == -1)
-        //    transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, -90, 1), 0);
-        //else if (movement2 == 1)
-        //    transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, 0, 1), 0);
-        //else if (movement2 == -1)
-        //    transform.eulerAngles = new Vector3(0, Mathf.LerpAngle(transform.eulerAngles.y, 180, 1), 0);
-
-
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.LeftArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.RightArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.UpArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.DownArrow))
-        //{
-        //    rig.velocity = new Vector3(movement * Speed, rig.velocity.y, rig.velocity.z);
-        //    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, movement2 * Speed);
-
-        //}
-
-
+ 
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -759,11 +690,12 @@ public class playerMenina : MonoBehaviour
 
             if (collision.gameObject.CompareTag("botao") && comKey == true)
             {
-
+ comKey = false;
                 newchave.SetActive(false);
-                comKey = false;
+               
                 segurando = false;
-                Destroy(newchave, 2);
+                Destroy(newchave, 3);
+                
 
             }
 

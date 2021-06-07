@@ -25,4 +25,10 @@ public class MesaEsquerda : MonoBehaviour
         instance = this;
     }
 
+
+    private void Update()
+    {
+
+
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TempoTeste : MonoBehaviour
 {
-    public float timeValue = 90;
+    public float timeValue = 180;
     public Text timerText;
 
     public static TempoTeste tempoTesteInstante;

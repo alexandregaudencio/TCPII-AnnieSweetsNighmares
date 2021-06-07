@@ -70,7 +70,7 @@ public class gameManager : MonoBehaviour
     }
     public void play1()
     {
-        SceneManager.LoadScene(proximaFase1);
+        SceneManager.LoadScene("TesteUrso");
         // botao.Play();
     }
     public void play2()

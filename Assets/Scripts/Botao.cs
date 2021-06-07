@@ -18,33 +18,33 @@ public class Botao : MonoBehaviour
         ativou = false;
         gastarChave = false;
         anim = GetComponent<Animator>();
+        this.transform.GetChild(3).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+       
         seg += Time.deltaTime;
 
         if (Input.GetKey(TeclaPlayer) && gastarChave == true)
         {
-            segAtual = seg;
-
-
-
-            if (seg < segAtual + 5.0f)
-            {
-                anim.SetBool("ativacao", true);
+                 segAtual = seg;
+                 anim.SetBool("ativacao", true);
                 this.transform.GetChild(3).gameObject.SetActive(true);
+                
 
             }
-            else
-                anim.SetBool("ativacao", false);
+            else{
+                anim.SetFloat("tempo", seg - segAtual);
+                 anim.SetBool("ativacao", false);
+                if(segAtual + 2 < seg){
+               
             this.transform.GetChild(3).gameObject.SetActive(false);
-
-
-
+            }
         }
+
 
 
     }
@@ -71,16 +71,28 @@ public class Botao : MonoBehaviour
 
         } */
 
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
 
         if (collision.gameObject.CompareTag("player"))
         {
+             player = collision.gameObject;
+            TeclaPlayer = player.GetComponent<playerMenina>().TeclaMartelo;
+            gastarChave = player.GetComponent<playerMenina>().comKey;
+        }
+
+
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+
+        if (collision.gameObject.CompareTag("player") && gastarChave)
+        {
             //chave = collision.gameObject;
             ativou = true;
-            player = collision.gameObject;
-            gastarChave = player.GetComponent<playerMenina>().comKey;
-            TeclaPlayer = player.GetComponent<playerMenina>().TeclaMartelo;
+           
+            
 
 
             //player = collision.gameObject;
@@ -90,6 +102,8 @@ public class Botao : MonoBehaviour
 
 
     }
+
+    
 
     private void OnTriggerExit(Collider collision)
     {

@@ -24,7 +24,11 @@ public class TransitionsInterfaceAnimation : MonoBehaviour
         
     }
 
+    public void StopStartTimeScale()
+    {
 
+        Time.timeScale = 0;
+    }
 
 
 

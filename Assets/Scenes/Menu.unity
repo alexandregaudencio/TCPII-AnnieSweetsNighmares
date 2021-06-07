@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myFx: {fileID: 0}
-  hoverFx: {fileID: 0}
-  clickFx: {fileID: 0}
+  myFx: {fileID: 64142900}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
 --- !u!82 &64142900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -373,18 +373,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: play1
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TransitionsInterfaceAnimation, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &64142902
@@ -882,9 +870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myFx: {fileID: 0}
-  hoverFx: {fileID: 0}
-  clickFx: {fileID: 0}
+  myFx: {fileID: 802961453}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
 --- !u!82 &802961453
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1313,9 +1301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myFx: {fileID: 0}
-  hoverFx: {fileID: 0}
-  clickFx: {fileID: 0}
+  myFx: {fileID: 811506388}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
 --- !u!1 &872471275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,7 +1403,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899288203
 GameObject:
@@ -1513,7 +1501,7 @@ RectTransform:
   - {fileID: 1887198053}
   - {fileID: 1697215014}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1562,7 +1550,7 @@ MonoBehaviour:
   credito: {fileID: 1887198051}
   NomeAnnie: {fileID: 737879693}
   jogarUi: {fileID: 1697215013}
-  jogar: {fileID: 0}
+  jogar: {fileID: 64142896}
   twoPlayers: {fileID: 1017975308}
   gameOverUi: {fileID: 0}
   vitoriaUi: {fileID: 0}
@@ -1578,7 +1566,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1008439626
 MonoBehaviour:
@@ -1690,9 +1678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myFx: {fileID: 0}
-  hoverFx: {fileID: 0}
-  clickFx: {fileID: 0}
+  myFx: {fileID: 1017975312}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
 --- !u!82 &1017975312
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1943,7 +1931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127301963}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.1, y: 9, z: -16.708462}
+  m_LocalPosition: {x: -1.1, y: 9, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 872471276}
@@ -2267,7 +2255,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.05
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2650,7 +2638,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 3.98, y: 8.92, z: 14.24}
+    m_Scale: {x: 3.98, y: 2.08, z: 3.36}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -3499,7 +3487,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: f5cdfb4577d21b342bbd7e233f2f837e, type: 3}
+    - sprite: {fileID: 21300000, guid: c226fa8ecde8efc4691ad0b7ed2718a6, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4701,7 +4689,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3.52
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4858,7 +4846,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 5.14
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -4867,7 +4855,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.77
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5873,7 +5861,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
+    enabled: 1
     ratio: 0
     light: {fileID: 0}
     randomDistribution: 1
@@ -7001,9 +6989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myFx: {fileID: 0}
-  hoverFx: {fileID: 0}
-  clickFx: {fileID: 0}
+  myFx: {fileID: 1229936357}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
 --- !u!82 &1229936357
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7344,9 +7332,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: audio, Assembly-CSharp
-          m_MethodName: 
+        - m_Target: {fileID: 1307503273}
+          m_TargetAssemblyTypeName: SoundEffectmenu, Assembly-CSharp
+          m_MethodName: HoverSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7361,7 +7349,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1307503273}
-          m_TargetAssemblyTypeName: audio, Assembly-CSharp
+          m_TargetAssemblyTypeName: SoundEffectmenu, Assembly-CSharp
           m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
@@ -7384,9 +7372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myFx: {fileID: 0}
-  hoverFx: {fileID: 0}
-  clickFx: {fileID: 0}
+  myFx: {fileID: 1307503274}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
 --- !u!82 &1307503274
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7565,7 +7553,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1357427799
 AudioSource:
@@ -7753,7 +7741,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1528735305
 GameObject:
@@ -7922,7 +7910,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 13
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -12561,7 +12549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528735305}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 5.357416, y: 0.9, z: -16.708462}
+  m_LocalPosition: {x: 5.357416, y: 1.6, z: -3.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 872471276}
@@ -12579,6 +12567,9 @@ GameObject:
   - component: {fileID: 1650951568}
   - component: {fileID: 1650951567}
   - component: {fileID: 1650951566}
+  - component: {fileID: 1650951570}
+  - component: {fileID: 1650951569}
+  - component: {fileID: 1650951571}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -12698,6 +12689,162 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650951564}
   m_CullTransparentMesh: 0
+--- !u!82 &1650951569
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650951564}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1650951570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650951564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f46e66a76a60a40a60fab74204fbbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myFx: {fileID: 1650951569}
+  hoverFx: {fileID: 8300000, guid: 9f4d67c1f89b97f46a2bbe71857672ca, type: 3}
+  clickFx: {fileID: 8300000, guid: 29731f824a6ed1d4baadd8619d805d11, type: 3}
+--- !u!114 &1650951571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650951564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1650951570}
+          m_TargetAssemblyTypeName: SoundEffectmenu, Assembly-CSharp
+          m_MethodName: ClickSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1650951570}
+          m_TargetAssemblyTypeName: SoundEffectmenu, Assembly-CSharp
+          m_MethodName: HoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1672084714
 GameObject:
   m_ObjectHideFlags: 0
@@ -12724,7 +12871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672084714}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 11.72, y: 9, z: -16.8}
+  m_LocalPosition: {x: 11.72, y: 9, z: -10.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 872471276}
@@ -13048,7 +13195,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.05
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -13431,7 +13578,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 3.98, y: 8.92, z: 12.24}
+    m_Scale: {x: 3.98, y: 2.08, z: 3.36}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -14280,7 +14427,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: f5cdfb4577d21b342bbd7e233f2f837e, type: 3}
+    - sprite: {fileID: 21300000, guid: c226fa8ecde8efc4691ad0b7ed2718a6, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -14765,7 +14912,7 @@ ParticleSystem:
     radial:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -17712,7 +17859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000059127808, y: -33}
+  m_AnchoredPosition: {x: -0.000059127808, y: -19}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1808802537
@@ -17798,7 +17945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8f864b1f44463aa46ad200b8541d19cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -17818,7 +17965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887198051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000059127808, y: -33, z: 138.99997}
+  m_LocalPosition: {x: -0.000059127808, y: -3, z: 138.99997}
   m_LocalScale: {x: 63.01719, y: 63.01719, z: 63.01719}
   m_Children:
   - {fileID: 1650951565}
