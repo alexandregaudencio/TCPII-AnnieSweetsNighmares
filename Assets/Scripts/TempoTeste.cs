@@ -16,14 +16,16 @@ public class TempoTeste : MonoBehaviour
     }
     void Update()
     {
-        if (timeValue > 0)
+        if (timeValue > 0 )
         {
-            timeValue -= Time.deltaTime;
+            if (ControleSpawnUrso.instance.IsGameplayOn)
+                timeValue -= Time.deltaTime;
+
         }
         else
         {
-            timeValue = 0;
-            //return;
+            //timeValue = 0;
+            ControleSpawnUrso.instance.IsGameplayOn = false;
             gameManager.instance.vitoria();
         }
         DisplayTime(timeValue);

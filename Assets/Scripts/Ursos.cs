@@ -120,7 +120,7 @@ public class Ursos : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("tesouro"))
+        if (collision.gameObject.CompareTag("tesouro") && GameOver.instance.vida > 0 && ControleSpawnUrso.instance.IsGameplayOn)
         {
 
             GameOver.instance.vida--;

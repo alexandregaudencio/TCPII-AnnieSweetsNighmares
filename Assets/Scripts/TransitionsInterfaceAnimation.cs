@@ -23,11 +23,6 @@ public class TransitionsInterfaceAnimation : MonoBehaviour
         FadeOut();
         
     }
-    //private void Start()
-    //{
-    //    FadeOut();
-    //    animator = backgroundImage.GetComponent<Animator>();
-    //}
 
 
 

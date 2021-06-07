@@ -27,24 +27,28 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vidaUi.text = vida.ToString();
-       
 
-        if (vida <= 0)
+        vidaUi.text = vida.ToString();
+
+
+        if (vida <= 0  && ControleSpawnUrso.instance.IsGameplayOn)
         {
             gameManager.instance.gameOver();
+            ControleSpawnUrso.instance.IsGameplayOn = false;
+            
+
+        }
+
+        if (!ControleSpawnUrso.instance.IsGameplayOn)
+        {
+            StopGame();
         }
     }
-   /* private void OnTriggerEnter(Collider collision)
+    void StopGame()
     {
 
+        ControleSpawnUrso.instance.speedUrsoMultiplicador = 0;
 
-        if (collision.gameObject.CompareTag("urso"))
-        {
+    }
 
-            vida=vida+0.5f;
-           //Destroy(collision.gameObject);
-
-        }
-    }*/
 }

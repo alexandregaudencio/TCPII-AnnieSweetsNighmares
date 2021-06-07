@@ -23682,7 +23682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &919128205
 Light:
   m_ObjectHideFlags: 0
@@ -58234,11 +58234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0011170494
+      value: 0.0011170934
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0008469165
+      value: -0.00084695
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033752, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_Offset.y
@@ -58266,11 +58266,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0011170494
+      value: 0.0011170934
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0008469165
+      value: -0.00084695
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515622314276, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_Targets.Array.data[0].target

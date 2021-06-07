@@ -19,13 +19,13 @@ public class ControleSpawnUrso : MonoBehaviour
     [SerializeField] [Range(0, 100)] private float keySpawnProbability;
     //public float getKeySpawnProbability { get => keySpawnProbability; }*/
 
-    private bool isTimeOn = true;
-    public bool IsTimeOn { get => isTimeOn; set => isTimeOn = value; }
+    private bool isGameplayOn = true;
+    public bool IsGameplayOn { get => isGameplayOn; set => isGameplayOn = value; }
 
     public bool CanDropKey()
     {
         float randomSpawnNumber = Random.Range(0, 100);
-        Debug.Log(randomSpawnNumber);
+ 
         return randomSpawnNumber <= keySpawnProbability ? true : false;
 
     }
@@ -48,11 +48,10 @@ public class ControleSpawnUrso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TempoTeste.tempoTesteInstante.timeValue <= 0f) isTimeOn = false;
-        Debug.Log(TempoTeste.tempoTesteInstante.timeValue);
+        if (TempoTeste.tempoTesteInstante.timeValue <= 0f) isGameplayOn = false;
 
 
-        if(isTimeOn) { 
+        if(isGameplayOn) { 
             Timer += Time.deltaTime;
             if(waveAttackOn && Timer >= spawnInterval)
             {
