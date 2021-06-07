@@ -348,8 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 4176943755117559529}
   chave: {fileID: 1318616575947803310, guid: 64c5b1c56405f0b4c923234f61d30413, type: 3}
-  SpawnChance: 15
-  speedUrso: 2.4
+  SpawnChance: 0.2
+  speedUrso: 2.6
 --- !u!1 &4309192509646407529
 GameObject:
   m_ObjectHideFlags: 0

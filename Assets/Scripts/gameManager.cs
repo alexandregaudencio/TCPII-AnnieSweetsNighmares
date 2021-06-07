@@ -19,6 +19,8 @@ public class gameManager : MonoBehaviour
     public GameObject menu;
     public GameObject creditoUi;
     public GameObject credito;
+
+    public GameObject NomeAnnie;
     public GameObject jogarUi;
     public GameObject jogar;
     public GameObject twoPlayers;
@@ -61,7 +63,7 @@ public class gameManager : MonoBehaviour
 
     }
 
-    public void MenuPrincipal()
+    public void LoadMenuScene()
     {
         SceneManager.LoadScene("Menu");
         // botao.Play();
@@ -80,6 +82,7 @@ public class gameManager : MonoBehaviour
 
     public void CreateInvoke(string functionName)
     {
+
         Invoke(functionName, 1.0f);
     }
 
@@ -135,6 +138,7 @@ public class gameManager : MonoBehaviour
         menuUi.SetActive(false);
         creditoUi.SetActive(true);
         credito.SetActive(true);
+        NomeAnnie.SetActive(false);
     }
     public void escolherJogador()
     {
@@ -149,19 +153,21 @@ public class gameManager : MonoBehaviour
         //menu.SetActive(true);
         creditoUi.SetActive(false);
         credito.SetActive(false);
+        NomeAnnie.SetActive(true);
         jogarUi.SetActive(false);
     }
     public void gameOver()
     {
         gameOverUi.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        
 
 
     }
     public void vitoria()
     {
         vitoriaUi.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
 
     }

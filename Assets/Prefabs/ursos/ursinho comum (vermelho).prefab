@@ -1155,7 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 3694733683447927960}
   chave: {fileID: 1318616575947803310, guid: 64c5b1c56405f0b4c923234f61d30413, type: 3}
-  SpawnChance: 15
+  SpawnChance: 0.2
   speedUrso: 2.2
 --- !u!136 &4198042084847518604
 CapsuleCollider:

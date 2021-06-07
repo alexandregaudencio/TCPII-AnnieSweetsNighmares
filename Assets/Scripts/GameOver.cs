@@ -29,13 +29,10 @@ public class GameOver : MonoBehaviour
     {
         vidaUi.text = vida.ToString();
        
-        Debug.Log(vida);
+
         if (vida <= 0)
         {
-            Debug.Log("fim de jogo");
-
             gameManager.instance.gameOver();
-
         }
     }
    /* private void OnTriggerEnter(Collider collision)

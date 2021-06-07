@@ -128,7 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
   chave: {fileID: 8376594530254579415, guid: 82a3fb62dfb926b40aefba787cafa095, type: 3}
-  SpawnChance: 15
+  SpawnChance: 1
+  speedUrso: 0
 --- !u!195 &-7261753579775443571
 NavMeshAgent:
   m_ObjectHideFlags: 0

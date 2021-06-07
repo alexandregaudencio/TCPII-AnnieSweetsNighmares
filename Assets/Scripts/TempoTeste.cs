@@ -7,7 +7,13 @@ public class TempoTeste : MonoBehaviour
 {
     public float timeValue = 90;
     public Text timerText;
-  
+
+    public static TempoTeste tempoTesteInstante;
+
+    public void Start()
+    {
+        tempoTesteInstante = this;
+    }
     void Update()
     {
         if (timeValue > 0)
@@ -17,6 +23,7 @@ public class TempoTeste : MonoBehaviour
         else
         {
             timeValue = 0;
+            //return;
             gameManager.instance.vitoria();
         }
         DisplayTime(timeValue);

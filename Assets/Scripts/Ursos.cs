@@ -15,9 +15,9 @@ public class Ursos : MonoBehaviour
     private ControleSpawnUrso controleSpawnUrso;
     private Vector3 alvo;
     private Vector3 eu;
-    float spawn = 0;
+    //float spawn;
     public GameObject chave;
-    public int SpawnChance;
+    [Range(0,1)] public float SpawnChance;
     public float speedUrso;
 
     int animUrsoRapido;
@@ -42,7 +42,7 @@ public class Ursos : MonoBehaviour
         navMeshAgent.speed = speedUrso * ControleSpawnUrso.instance.speedUrsoMultiplicador;
         alvo = GameObject.FindWithTag("tesouro").transform.position;
         id = gameObject.layer;
-        spawn = Random.Range(0, SpawnChance);
+
 
         anim = GetComponent<Animator>();
 
@@ -53,17 +53,16 @@ public class Ursos : MonoBehaviour
     }
 
     void Update()
-    {
-        Debug.Log(controleSpawnUrso);
-
+    {                 
         navMeshAgent.SetDestination(alvo);
         eu = this.transform.position;
         takeUrso();
         animUrsoRapido = Random.Range(0, 100);
-        Debug.Log("animUrsoRapido " + animUrsoRapido);
-        
        
     }
+
+
+
 
     public void Droppar()
     {
@@ -87,14 +86,17 @@ public class Ursos : MonoBehaviour
              Destroy(gameObject, 3f);
             navMeshAgent.speed = 0;
         }
-       
-        
-        if (spawn > 1)
+
+
+
+;        if (ControleSpawnUrso.instance.CanDropKey())
         {
             Instantiate(chave, eu, Quaternion.identity);
 
         }
     }
+
+
 
     public void takeUrso()
     {

@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 6008651327625929390}
   chave: {fileID: 1318616575947803310, guid: 64c5b1c56405f0b4c923234f61d30413, type: 3}
-  SpawnChance: 15
+  SpawnChance: 0.2
   speedUrso: 2
 --- !u!95 &919132149001671697
 Animator:

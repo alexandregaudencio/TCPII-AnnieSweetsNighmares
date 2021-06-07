@@ -8,16 +8,34 @@ public class ControleSpawnUrso : MonoBehaviour
     //TempoTeste tempoTeste;
     [SerializeField] private spawUrso[] spawUrso;
     [SerializeField] private float spawnInterval = 10f;
-
-     private int spawnAtEveryPointCount = 5;
+    private int spawnAtEveryPointCount = 5;
     private bool spawningAtEveryPoints;
-    [SerializeField] [Range(0, 5)] private int spawnCount = 0;
-    public static ControleSpawnUrso instance;
-
     public float speedUrsoMultiplicador;
 
-        float Timer = 0f;
+    [SerializeField] [Range(0, 5)] private int toSpawnAtEveryPointCount = 0;
+    
+    public static ControleSpawnUrso instance;
+
+    [SerializeField] [Range(0, 100)] private float keySpawnProbability;
+    //public float getKeySpawnProbability { get => keySpawnProbability; }*/
+
+    private bool isTimeOn = true;
+    public bool IsTimeOn { get => isTimeOn; set => isTimeOn = value; }
+
+    public bool CanDropKey()
+    {
+        float randomSpawnNumber = Random.Range(0, 100);
+        Debug.Log(randomSpawnNumber);
+        return randomSpawnNumber <= keySpawnProbability ? true : false;
+
+    }
+
+
+
+    float Timer = 0f;
     private bool waveAttackOn = true;
+
+
 
     private void Start()
     {
@@ -30,24 +48,24 @@ public class ControleSpawnUrso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (TempoTeste.tempoTesteInstante.timeValue <= 0f) isTimeOn = false;
+        Debug.Log(TempoTeste.tempoTesteInstante.timeValue);
 
-        Timer += Time.deltaTime;
-        if(waveAttackOn && Timer >= spawnInterval)
-        {
-            GenerateSpawnUrso(spawningAtEveryPoints);
-            Timer = 0;
+
+        if(isTimeOn) { 
+            Timer += Time.deltaTime;
+            if(waveAttackOn && Timer >= spawnInterval)
+            {
+                GenerateSpawnUrso(spawningAtEveryPoints);
+                Timer = 0;
+            }
+            if(toSpawnAtEveryPointCount >= spawnAtEveryPointCount) spawningAtEveryPoints = true;
         }
 
-        if(spawnCount >= spawnAtEveryPointCount)
-        {
-            spawningAtEveryPoints = true;
-        }
     }
 
     void GenerateSpawnUrso(bool everySpawnPoint)
     {
-        
-
         if(everySpawnPoint)
         {
             foreach (spawUrso iSpawnUrso in spawUrso)
@@ -55,14 +73,12 @@ public class ControleSpawnUrso : MonoBehaviour
                 iSpawnUrso.OnAttackWave();
             }
             spawningAtEveryPoints = false;
-            spawnCount = 0;
-            
-
+            toSpawnAtEveryPointCount = 0;
         } else
         {
             int indexArrayRandom = Random.Range(0, spawUrso.Length);
             spawUrso[indexArrayRandom].OnAttackWave();
-            spawnCount += 1;
+            toSpawnAtEveryPointCount += 1;
         }
     }
 

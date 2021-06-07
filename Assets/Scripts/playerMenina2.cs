@@ -668,9 +668,9 @@ public class playerMenina2 : MonoBehaviour
             {
 
                 newchave.SetActive(false);
+                Destroy(newchave, 3);
                 comKey = false;
                 segurando = false;
-                Destroy(newchave, 2);
 
             }
 

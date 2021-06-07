@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class audio : MonoBehaviour
+public class SoundEffectmenu : MonoBehaviour
 {
     public AudioSource myFx;
     public AudioClip hoverFx;
