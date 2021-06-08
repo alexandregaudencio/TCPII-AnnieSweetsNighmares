@@ -1868,6 +1868,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6fc4fa0aefa5b746aff8c30d8625635, type: 3}
+--- !u!1 &69779488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6436736514503190151, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
+  m_PrefabInstance: {fileID: 6436736513897889746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &69779489 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6436736514503190152, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
+  m_PrefabInstance: {fileID: 6436736513897889746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &69779493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69779488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87409932ed7b3bd4b8a00a7085e66b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trilhaVitoria: {fileID: 8300000, guid: 6dc8e80909ff53d4ab230719c6d418ab, type: 3}
+  trilhaDerrota: {fileID: 8300000, guid: 3fc1d3629e8d5db498eab2571bf91e01, type: 3}
+  trilhaJogo: {fileID: 0}
+  audioSource: {fileID: 69779489}
+  x: 0
 --- !u!1001 &72724929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90466,31 +90493,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1644807
+      value: -1.1606554
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7497311
+      value: -5.906269
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.6525121
+      value: 3.0169117
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.79686224
+      value: 0.7938068
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6041594
+      value: 0.60817003
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0011170319
+      value: 0.000000013658552
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00084690365
+      value: -0.0000000104644124
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033752, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_Offset.y
@@ -90510,19 +90537,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.79686224
+      value: 0.7938068
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6041594
+      value: 0.60817003
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0011170319
+      value: 0.000000013658552
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00084690365
+      value: -0.0000000104644124
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515622314276, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_Targets.Array.data[0].target
