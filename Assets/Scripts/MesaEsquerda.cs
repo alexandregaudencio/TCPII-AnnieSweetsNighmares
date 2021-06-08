@@ -18,6 +18,8 @@ public class MesaEsquerda : MonoBehaviour
     public bool jaTem3;
     public bool jaTem4;
 
+    public GameObject loadBarCraft;
+
     void Start()
     {
         obj4ID = 5;

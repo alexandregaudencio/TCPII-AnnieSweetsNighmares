@@ -32,6 +32,7 @@ public class trap : MonoBehaviour
 
 public AudioSource myFx;
 public AudioClip  batidaMartelo;
+    private bool canPlayBatidaMartelo;
 
 public GameObject Portao;
     private Animator anim;
@@ -42,12 +43,13 @@ public GameObject Portao;
 
     public bool ativo, temBotao;
     public bool fechou = false;
-    bool veri;
+     bool veri;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        canPlayBatidaMartelo = false;
         giroAtual = 0.0f;
         posAtual = 0.0f;
         posAtual2 = 0.0f;
@@ -58,9 +60,12 @@ public GameObject Portao;
         ativo = false;
         temBotao = false;
         myFx = GetComponent<AudioSource>();
-       
+
 
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -73,13 +78,26 @@ public GameObject Portao;
 
         seg += Time.deltaTime;
 
-if(segAtual + tempoDeVolta + 1f < seg){
-    veri = false;
-} 
-else veri = true;
+        if(segAtual + tempoDeVolta + 1f < seg){
+            veri = false;
+        } 
+        else veri = true;
        
+    }
+    private void FixedUpdate()
+    {
+
+        PlaySoundMartelo();
+    }
+
+    void PlaySoundMartelo()
+    {
+        if ( fechou)
+            if (myFx.isPlaying) return;
+            else myFx.PlayOneShot(batidaMartelo);
 
     }
+
 
     void ControlarPorta()
     {
@@ -97,13 +115,12 @@ else veri = true;
             giroAlvo = grausDeGiro;
             posAlvo = altura;
             posAlvo2 = altura2;
-            myFx.PlayOneShot(batidaMartelo);
-
+            
 
             }
             else if (segAtual + tempoDeVolta < seg){
 
-                 giroAlvo = 0.0f;
+             giroAlvo = 0.0f;
             posAlvo = 0.0f;
             posAtual2 = 0.0f;
             fechou = false;

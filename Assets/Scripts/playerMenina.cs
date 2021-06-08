@@ -30,6 +30,8 @@ public class playerMenina : MonoBehaviour
     string ArmSom;
 
 
+
+
     public GameObject[] LA;
     // public GameObject LA2;
     public GameObject[] armArray;//(arm,arm1,arm3)
@@ -97,13 +99,9 @@ public class playerMenina : MonoBehaviour
     public int RotY2 { get => RotY; set => RotY = value; }
     public int RotZ2 { get => RotZ; set => RotZ = value; }
 
-    /* public int RotX2 { get => RotX; set => RotX = value; }
-    public int RotY2{ get => RotY; set => RotY = value; }
-    public int RotZ2 { get => RotZ; set => RotZ = value; }
 
-    */
 
-    // Start is called before the first frame update
+
     void Start()
     {
 
@@ -271,8 +269,22 @@ public class playerMenina : MonoBehaviour
 
     }
 
+    public void OnLoadBarCraft(Collision collision)
+    {
+        if (Input.GetKeyDown(TeclaMartelo) && collision.gameObject.CompareTag("mesa") && MesaEsquerda.instance.colocadoD && MesaEsquerda.instance.colocadoE)
+        {
+            MesaEsquerda.instance.loadBarCraft.SetActive(true);
+            //MesaEsquerda.instance.loadBarCraft.GetComponent<Animator>().Play("loadBarCraftAnim");
+        }
+        else if (Input.GetKeyUp(TeclaMartelo))
+        {
+            MesaEsquerda.instance.loadBarCraft.SetActive(false);
+        }
+    }
     private void OnCollisionStay(Collision collision)
     {
+        OnLoadBarCraft(collision);
+
 
         if (Input.GetKey(TeclaMartelo))
         {
@@ -281,6 +293,7 @@ public class playerMenina : MonoBehaviour
 
                 if (collision.gameObject.CompareTag("mesa"))
                 {
+
                     if (criando == true)
                     {
                         obj7Id = obj6Id;
@@ -494,6 +507,8 @@ public class playerMenina : MonoBehaviour
         }
 
 
+
+
         if (Input.GetKey(TeclaMartelo))
         {
             if (collision.gameObject.CompareTag("mesa"))
@@ -520,6 +535,7 @@ public class playerMenina : MonoBehaviour
                             MesaEsquerda.instance.colocadoE = true;
                             MesaEsquerda.instance.colocadoD = true;
                             tempoPoçaCola -= Time.deltaTime;
+                           
                             //Debug.Log(tempo0);
                         }
                     }
@@ -690,7 +706,7 @@ public class playerMenina : MonoBehaviour
 
             if (collision.gameObject.CompareTag("botao") && comKey == true)
             {
- comKey = false;
+                comKey = false;
                 newchave.SetActive(false);
                
                 segurando = false;

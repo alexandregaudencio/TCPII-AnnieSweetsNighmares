@@ -5,12 +5,14 @@ using UnityEngine;
 public class porta : MonoBehaviour
 {
     private Animator anim;
+    BoxCollider boxCollider;
     public GameObject martelo;
     bool usar;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -20,9 +22,11 @@ public class porta : MonoBehaviour
 
         if (usar == true){
              anim.SetBool("fechou", true);
+            boxCollider.enabled = true;
         }
         else{
             anim.SetBool("fechou", false);
+            boxCollider.enabled = false ;
         }
     }
 }

@@ -70,13 +70,13 @@ public class gameManager : MonoBehaviour
     }
     public void play1()
     {
-        SceneManager.LoadScene("TesteUrso");
+        SceneManager.LoadScene("SinglePlayerScene");
         // botao.Play();
     }
     public void play2()
     {
 
-        SceneManager.LoadScene("TesteUrso");
+        SceneManager.LoadScene("MultiPlayerScene");
         // botao.Play();
     }
 
