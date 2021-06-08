@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: ff09d02b13e6a124b87cda83ff27b8f6, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3a20275f6b83c66458104b75a21fd976, type: 2}
 --- !u!4 &1628400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f931eda366a1e64d8f3c3fca14d62a3, type: 3}
@@ -25275,7 +25275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &994448876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76307,10 +76307,10 @@ MonoBehaviour:
   spawUrso:
   - {fileID: 554347916}
   - {fileID: 969957542}
-  spawnInterval: 15
+  spawnInterval: 14
   speedUrsoMultiplicador: 1
   toSpawnAtEveryPointCount: 0
-  keySpawnProbability: 10
+  keySpawnProbability: 20
 --- !u!114 &1734444151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76337,7 +76337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a706efc724b982241b52d5dafd5a40d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeValue: 180
+  timeValue: 210
   timerText: {fileID: 595540195}
 --- !u!95 &1734444153
 Animator:
@@ -88422,7 +88422,7 @@ GameObject:
   - component: {fileID: 919132147574355440}
   - component: {fileID: 919132147574355442}
   m_Layer: 18
-  m_Name: Player2Oficial
+  m_Name: Player2
   m_TagString: player
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -88539,7 +88539,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: cf4248445b2f52c4296e04cb9f96bb59, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1.65
+  m_Pitch: 2.4
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -88895,7 +88895,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 01c9cdb8ec0bd684c925bd33c78b0e3f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1.65
+  m_Pitch: 2.4
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -90478,7 +90478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7968623
+      value: 0.79686224
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -90486,11 +90486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0011170522
+      value: 0.0011170319
       objectReference: {fileID: 0}
     - target: {fileID: 6436736514503190154, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00084691856
+      value: -0.00084690365
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033752, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_Offset.y
@@ -90510,7 +90510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7968623
+      value: 0.79686224
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.x
@@ -90518,11 +90518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0011170522
+      value: 0.0011170319
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515473033754, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00084691856
+      value: -0.00084690365
       objectReference: {fileID: 0}
     - target: {fileID: 6436736515622314276, guid: 8f5badd191858b84d8964e0d082640d8, type: 3}
       propertyPath: m_Targets.Array.data[0].target

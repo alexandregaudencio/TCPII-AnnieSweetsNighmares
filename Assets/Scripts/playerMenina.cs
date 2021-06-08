@@ -280,13 +280,19 @@ public class playerMenina : MonoBehaviour
         {
             MesaEsquerda.instance.loadBarCraft.SetActive(false);
         }
+
+        if ( !MesaEsquerda.instance.colocadoD || !MesaEsquerda.instance.colocadoE)
+            MesaEsquerda.instance.loadBarCraft.SetActive(false);
     }
+
+
     private void OnCollisionStay(Collision collision)
     {
         OnLoadBarCraft(collision);
 
 
-        if (Input.GetKey(TeclaMartelo))
+
+            if (Input.GetKey(TeclaMartelo))
         {
             if (segurando == false)
             {

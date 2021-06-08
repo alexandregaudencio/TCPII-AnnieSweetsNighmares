@@ -58,7 +58,6 @@ public class Ursos : MonoBehaviour
  
         myFx.Pause();
         
-        Debug.Log("started");
         
         myFxall.PlayOneShot(nasceu);
 
